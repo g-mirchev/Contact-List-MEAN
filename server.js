@@ -1,6 +1,7 @@
 import express from "express";
 import { json } from "body-parser";
 import { ObjectID as _ObjectID, MongoClient } from "mongodb";
+import contactController from "./express-app/controllers/contactController.js"
 
 const CONTACTS_COLLECTION = "contacts";
 
@@ -32,3 +33,5 @@ MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test",
         console.log("App now running on port", port)
     });
 });
+
+app.use("/contacts", contactController)
