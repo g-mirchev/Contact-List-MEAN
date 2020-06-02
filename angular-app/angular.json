@@ -1,9 +1,9 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "../node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "contactlist-mean": {
+    "angular-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/contactlist-mean",
+            "outputPath": "dist/angular-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "contactlist-mean:build"
+            "browserTarget": "angular-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "contactlist-mean:build:production"
+              "browserTarget": "angular-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "contactlist-mean:build"
+            "browserTarget": "angular-app:build"
           }
         },
         "test": {
@@ -114,15 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "contactlist-mean:serve"
+            "devServerTarget": "angular-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "contactlist-mean:serve:production"
+              "devServerTarget": "angular-app:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "contactlist-mean"
+    }
+  },
+  "defaultProject": "angular-app",
+  "cli": {
+    "analytics": false
+  }
 }
