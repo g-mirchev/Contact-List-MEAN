@@ -28,7 +28,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-    const contact = new Contact({
+    let contact = new Contact({
         name: req.body.name,
         email: req.body.email,
         location: req.body.location,
