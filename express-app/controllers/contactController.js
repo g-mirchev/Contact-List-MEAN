@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Contact = require("../models/contact");
+const { Contact } = require("../models/contact");
 
 /**
  * Generic error handling
@@ -36,7 +36,7 @@ router.post("/", function(req, res) {
     });
     contact.save((err, doc) => {
         if (!err) {
-            res.status(201).json(doc.ops[0]);
+            res.status(201).json(doc);
         } else {
             handleError(res, err.message, "Failed to get contacts.");    
         }
