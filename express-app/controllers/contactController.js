@@ -1,5 +1,7 @@
 import express from "express";
 const router = express.Router();
+const ObjectID = require("mongoose").Types.ObjectId;
+import { Contact } from "../models/contact.js";
 
 /**
  * Generic error handling
@@ -17,11 +19,29 @@ function handleError(res, reason, message, code) {
  */
 
 router.get("/", function(req, res) {
-
+    Contact.find((err, docs) => {
+        if (!err) {
+            res.status(200).json(docs);
+        } else {
+            handleError(res, err.message, "Failed to get contacts.")
+        }
+    });
 });
 
 router.post("/", function(req, res) {
-    
+    const contact = new Contact({
+        name: req.body.name,
+        email: req.body.email,
+        location: req.body.location,
+        primary: req.body.primary
+    });
+    contact.save((err, doc) => {
+        if (!err) {
+            res.status(201).json(doc.ops[0]);
+        } else {
+            handleError(res, err.message, "Failed to get contacts.");    
+        }
+    });
 });
 
 /**

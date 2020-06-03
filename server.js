@@ -8,10 +8,10 @@ app.use(json());
 
 mongoose.connect(process.env.MONGODB_URI, (err) => {
     if(err) {
-        console.log("DB connection error: ", err);
-        
+        console.log(err);
+        process.exit(1);
     }
-    
+
     console.log("MongoDB conection success.");
 
     const server = app.listen(process.env.PORT || 8080, () => {
