@@ -20,6 +20,4 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
     });
 });
 
-app.use("/api/contacts", contactController)
-
-module.exports = server;
+app.use("/api/contacts", contactController);
