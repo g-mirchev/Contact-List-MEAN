@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Contact } = require("../models/contact.js");
+const Contact = require("../models/contact");
 
 /**
  * Generic error handling
