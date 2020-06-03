@@ -25,4 +25,6 @@ const server = app.listen(process.env.PORT || 8080, () => {
     console.log("App now running on port", port);
 });
 
-app.use("/contacts", contactController)
+app.use("/api/contacts", contactController)
+
+module.exports = server;
