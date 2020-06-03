@@ -1,10 +1,10 @@
-import express from "express";
-import { json } from "body-parser";
-import mongoose from "mongoose";
-import contactController from "./express-app/controllers/contactController.js";
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const contactController = require("./express-app/controllers/contactController.js");
 
 const app = express();
-app.use(json());
+app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_URI, (err) => {
     if(err) {

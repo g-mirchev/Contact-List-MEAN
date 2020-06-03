@@ -1,7 +1,6 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
-const ObjectID = require("mongoose").Types.ObjectId;
-import { Contact } from "../models/contact.js";
+const { Contact } = require("../models/contact.js");
 
 /**
  * Generic error handling
