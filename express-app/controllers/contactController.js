@@ -36,24 +36,39 @@ module.exports = {
                 handleError(res, err.message, "Failed to get contacts.")
             }
         });
+    },
+    create: function(req, res) {
+        let contact = new Contact({
+            name: req.body.name,
+            email: req.body.email,
+            location: req.body.location,
+            primary: req.body.primary
+        });
+        contact.save(function(err, doc) {
+            if (!err) {
+                res.status(201).json(doc);
+            } else {
+                handleError(res, err.message, "Failed to get contacts.");    
+            }
+        });
     }
 }
 
-router.post("/", function(req, res) {
-    let contact = new Contact({
-        name: req.body.name,
-        email: req.body.email,
-        location: req.body.location,
-        primary: req.body.primary
-    });
-    contact.save((err, doc) => {
-        if (!err) {
-            res.status(201).json(doc);
-        } else {
-            handleError(res, err.message, "Failed to get contacts.");    
-        }
-    });
-});
+// router.post("/", function(req, res) {
+//     let contact = new Contact({
+//         name: req.body.name,
+//         email: req.body.email,
+//         location: req.body.location,
+//         primary: req.body.primary
+//     });
+//     contact.save((err, doc) => {
+//         if (!err) {
+//             res.status(201).json(doc);
+//         } else {
+//             handleError(res, err.message, "Failed to get contacts.");    
+//         }
+//     });
+// });
 
 /**
  *  "/api/contacts/:id"
