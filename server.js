@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//const contactController = require("./express-app/controllers/contactController.js");
 const routes = require("./express-app/routes/routes");
 
 /**
