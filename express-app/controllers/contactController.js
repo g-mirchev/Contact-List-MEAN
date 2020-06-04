@@ -7,7 +7,7 @@ const { Contact } = require("../models/contact");
  */
 function handleError(res, reason, message, code) {
     console.log("ERROR: " + reason);
-    res.status(code || 500).json({"error": message});
+    return res.status(code || 500).json({"error": message});
 }
 
 /**
@@ -30,7 +30,7 @@ function handleError(res, reason, message, code) {
 module.exports.getAll = (req, res) => {
     Contact.find((err, docs) => {
         if (!err) {
-            res.status(200).json(docs);
+            return res.status(200).json(docs);
         } else {
             handleError(res, err.message, "Failed to get contacts.")
         }
