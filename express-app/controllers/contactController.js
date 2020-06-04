@@ -28,8 +28,8 @@ function handleError(res, reason, message, code) {
 // });
 
 module.exports = {
-    all: (req, res) => {
-        Contact.find({}, (err, docs) => {
+    all: function(req, res) {
+        Contact.find({}, function(err, docs) {
             if (!err) {
                 res.status(200).json(docs);
             } else {

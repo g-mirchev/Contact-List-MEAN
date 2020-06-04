@@ -7,7 +7,7 @@ const routes = require("./express-app/routes/routes.js");
 const app = express();
 
 app.use(bodyParser.json());
-app.use("/api/contacts", contactController);
+//app.use("/api/contacts", contactController);
 app.use("/api", routes);
 
 mongoose.connect(process.env.MONGODB_URI, (err) => {
