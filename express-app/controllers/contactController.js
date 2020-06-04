@@ -17,7 +17,17 @@ function handleError(res, reason, message, code) {
  *  POST: creates a new contact
  */
 
-router.get("/", function(req, res) {
+// router.get("/", function(req, res) {
+//     Contact.find((err, docs) => {
+//         if (!err) {
+//             res.status(200).json(docs);
+//         } else {
+//             handleError(res, err.message, "Failed to get contacts.")
+//         }
+//     });
+// });
+
+module.exports.getAll = (req, res) => {
     Contact.find((err, docs) => {
         if (!err) {
             res.status(200).json(docs);
@@ -25,7 +35,7 @@ router.get("/", function(req, res) {
             handleError(res, err.message, "Failed to get contacts.")
         }
     });
-});
+}
 
 router.post("/", function(req, res) {
     let contact = new Contact({

@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const contactController = require("./express-app/controllers/contactController.js");
+const routes = require("./express-app/routes/routes");
 
 const app = express();
 app.use(bodyParser.json());
@@ -21,3 +22,4 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
 });
 
 app.use("/api/contacts", contactController);
+app.use("/api", routes);
