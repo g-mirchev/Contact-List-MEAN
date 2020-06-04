@@ -7,7 +7,7 @@ const { Contact } = require("../models/contact");
  */
 function handleError(res, reason, message, code) {
     console.log("ERROR: " + reason);
-    return res.status(code || 500).json({"error": message});
+    res.status(code || 500).json({"error": message});
 }
 
 /**
@@ -27,14 +27,16 @@ function handleError(res, reason, message, code) {
 //     });
 // });
 
-module.exports.getAll = (req, res) => {
-    Contact.find((err, docs) => {
-        if (!err) {
-            return res.status(200).json(docs);
-        } else {
-            handleError(res, err.message, "Failed to get contacts.")
-        }
-    });
+module.exports = {
+    all: (req, res) => {
+        Contact.find({}, (err, docs) => {
+            if (!err) {
+                res.status(200).json(docs);
+            } else {
+                handleError(res, err.message, "Failed to get contacts.")
+            }
+        });
+    }
 }
 
 router.post("/", function(req, res) {
