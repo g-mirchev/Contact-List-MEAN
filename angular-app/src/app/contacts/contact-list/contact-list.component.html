@@ -1,1 +1,21 @@
-<p>contact-list works!</p>
+<div>
+    <section class="contacts">
+        <div class="container-fluid">
+            <div class="contactsheader">
+                <h1>Contacts</h1>
+            </div>
+            <div class="row">
+                <div *ngFor="let contact of contacts">
+                    <div class="card contactscard">
+                        <div class="card-body">
+                            <h5 class="card-title">{{contact.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{contact.email}}</h6>
+                            <div>{{contact.location}}</div>
+                            <div>{{contact.primary}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
