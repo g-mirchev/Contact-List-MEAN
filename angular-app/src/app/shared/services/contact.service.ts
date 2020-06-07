@@ -5,14 +5,14 @@ import { Contact } from '../models/contact';
 @Injectable()
 export class ContactService {
 
-  private contactsUrl = "/api/contacts";
+  private contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
 
   constructor(private http: Http) {}
 
   /**
    * GET  ("/api/contacts")
    */
-  getContents(): Promise<void | Contact[]> {
+  getContacts(): Promise<void | Contact[]> {
     return this.http.get(this.contactsUrl)
                .toPromise()
                .then(response => response.json() as Contact[])
