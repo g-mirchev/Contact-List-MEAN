@@ -1,12 +1,11 @@
 <div>
     <section class="contacts">
-        <div class="container-fluid">
-            <div class="contactsheader">
+            <div class="contactsheader bottomshadow">
                 <h1>Contacts</h1>
             </div>
-            <div class="row">
+            <div class="row container-fluid">
                 <div *ngFor="let contact of contacts">
-                    <div class="card contactscard">
+                    <div class="card contactscard boxshadow">
                         <div class="card-body">
                             <h5 class="card-title">{{contact.name}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{contact.email}}</h6>
@@ -16,6 +15,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
