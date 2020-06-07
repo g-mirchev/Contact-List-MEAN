@@ -24,7 +24,6 @@
             "tsConfig": "angular-app/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "angular-app/src/favicon.ico",
               "angular-app/src/assets"
             ],
             "styles": [
