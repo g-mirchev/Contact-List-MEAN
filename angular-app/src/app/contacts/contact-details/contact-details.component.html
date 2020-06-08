@@ -1,1 +1,28 @@
-<p>contact-details works!</p>
+<div class="contactdisplay">
+    <div *ngIf="contact" class="row">
+        <div class= "col-md-12">
+            <h2 *ngIf="contact._id">Contact Details</h2>
+            <h2 *ngIf="!contact._id">New Contact</h2>
+        </div>
+    </div>
+    <div *ngIf="contact" class="row">
+        <form class="col-md-12">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input class="form-control" name="contact-name" [(ngModel)]="contact.name" placeholder="e.g. Benjamin Dover"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input class="form-control" name="contact-email" [(ngModel)]="contact.email" placeholder="e.g. someone@email.com"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone-mobile">Location</label>
+            <input class="form-control" name="contact-location" [(ngModel)]="contact.location" placeholder="e.g. United Kingdom"/>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone-work">Primary</label>
+            <input class="form-control" name="contact-primary" [(ngModel)]="contact.primary" placeholder="e.g. 0123456789"/>
+          </div>
+        </form>
+      </div>
+</div>

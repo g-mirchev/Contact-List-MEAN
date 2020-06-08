@@ -75,4 +75,19 @@ selectedContact: Contact;
     }
     return this.contacts;
   }
+
+  addContact = (contact: Contact) => {
+    this.contacts.push(contact);
+    this.selectContact(contact);
+    return this.contacts;
+  }
+
+  updateContact = (contact: Contact) => {
+    let index = this.getIndexOfContact(contact._id);
+    if(index !== -1) {
+      this.contacts[index] = contact;
+      this.selectContact(contact);
+    }
+    return this.contacts;
+  }
 }

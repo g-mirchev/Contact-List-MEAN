@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpModule } from '@angular/http';
+import { FormsModule} from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
@@ -16,7 +17,8 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

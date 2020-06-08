@@ -1,10 +1,14 @@
-<div>
-    <section class="contacts">
-            <div class="contactsheader bottomshadow">
-                <h1>Contacts</h1>
-            </div>
-            <div class="row container-fluid">
-                <div *ngFor="let contact of contacts">
+<div class="contacts">
+    <div class="contactsheader bottomshadow">
+        <h1>Contacts</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md row">
+                <div *ngFor="let contact of contacts"
+                    (click)="selectContact(contact)"
+                    [class.active]="contact ===selectedContact">
                     <div class="card contactscard boxshadow">
                         <div class="card-body">
                             <h5 class="card-title">{{contact.name}}</h5>
@@ -14,6 +18,12 @@
                         </div>
                     </div>
                 </div>
+            </div> 
+            <div clas="col-md">
+                <app-contact-details 
+                    [contact]="selectedContact">
+                </app-contact-details>
             </div>
-    </section>
+        </div>
+    </div>
 </div>
