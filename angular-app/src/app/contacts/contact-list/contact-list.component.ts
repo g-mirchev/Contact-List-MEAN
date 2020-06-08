@@ -11,8 +11,8 @@ import { ContactDetailsComponent } from '../contact-details/contact-details.comp
 })
 export class ContactListComponent implements OnInit {
 
-contacts: Contact[];
-selectedContact: Contact;
+  contacts: Contact[];
+  selectedContact: Contact;
 
   constructor(private contactService: ContactService) { }
 
@@ -37,7 +37,7 @@ selectedContact: Contact;
   private getIndexOfContact = (contactId: String) => {
     return this.contacts.findIndex((contact) => {
       return contact._id === contactId;
-    })
+    });
   }
 
   /**

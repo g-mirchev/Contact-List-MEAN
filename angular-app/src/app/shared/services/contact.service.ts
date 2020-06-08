@@ -5,7 +5,7 @@ import { Contact } from '../models/contact';
 @Injectable()
 export class ContactService {
 
-  private contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
+  private readonly contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
 
   constructor(private http: Http) {}
 
@@ -49,8 +49,8 @@ export class ContactService {
    /**
    * DELETE  ("/api/contacts/:id")
    */
-  deleteContact(deleteContactId: String): Promise<void | String> {
-    return this.http.delete(this.contactsUrl + '/' + deleteContactId)
+  deleteContact(deletedContactId: String): Promise<void | String> {
+    return this.http.delete(this.contactsUrl + '/' + deletedContactId)
                .toPromise()
                .then(response => response.json() as String)
                .catch(this.handleError);

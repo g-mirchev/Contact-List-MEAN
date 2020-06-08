@@ -21,6 +21,9 @@
             <label for="contact-phone-work">Primary</label>
             <input class="form-control" name="contact-primary" [(ngModel)]="contact.primary" placeholder="e.g. 0123456789"/>
           </div>
+            <button class="btn btn-primary" *ngIf="!contact._id" (click)="createContact(contact)">Create</button>
+            <button class="btn btn-info" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
+            <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
         </form>
       </div>
 </div>

@@ -1,8 +1,9 @@
 <div class="contacts">
     <div class="contactsheader bottomshadow">
         <h1>Contacts</h1>
+        <button class="btn-warning" (click)="createNewContact()">+New</button>
     </div>
-    <div class="">
+    <div class="container-fluid">
         <div class="d-flex">
             <div class="row flex-grow-*">
                 <div *ngFor="let contact of contacts"
