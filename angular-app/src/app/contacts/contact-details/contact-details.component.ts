@@ -10,6 +10,13 @@ import { ContactService } from "../../shared/services/contact.service";
 export class ContactDetailsComponent {
   @Input()
   contact: Contact;
+  
+  @Input()
+  createHandler: Function;
+  @Input()
+  updateHandler: Function;
+  @Input()
+  deleteHandler: Function;
 
   constructor(private contactService: ContactService) { }
 

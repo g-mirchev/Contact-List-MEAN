@@ -2,10 +2,9 @@
     <div class="contactsheader bottomshadow">
         <h1>Contacts</h1>
     </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md row">
+    <div class="">
+        <div class="d-flex">
+            <div class="row flex-grow-*">
                 <div *ngFor="let contact of contacts"
                     (click)="selectContact(contact)"
                     [class.active]="contact ===selectedContact">
@@ -19,9 +18,12 @@
                     </div>
                 </div>
             </div> 
-            <div clas="col-md">
+            <div clas="">
                 <app-contact-details 
-                    [contact]="selectedContact">
+                    [contact]="selectedContact"
+                    [createHandler]="addContact"
+                    [updateHandler]="updateContact"
+                    [deleteHandler]="deleteContact">
                 </app-contact-details>
             </div>
         </div>

@@ -1,12 +1,10 @@
-<div class="contactdisplay">
-    <div *ngIf="contact" class="row">
-        <div class= "col-md-12">
-            <h2 *ngIf="contact._id">Contact Details</h2>
-            <h2 *ngIf="!contact._id">New Contact</h2>
-        </div>
+<div *ngIf="contact" class="contactdisplay">
+    <div class= "">
+        <h2 *ngIf="contact._id">Contact Details</h2>
+        <h2 *ngIf="!contact._id">New Contact</h2>
     </div>
-    <div *ngIf="contact" class="row">
-        <form class="col-md-12">
+    <div class="">
+        <form class="">
           <div class="form-group">
             <label for="contact-name">Name</label>
             <input class="form-control" name="contact-name" [(ngModel)]="contact.name" placeholder="e.g. Benjamin Dover"/>
