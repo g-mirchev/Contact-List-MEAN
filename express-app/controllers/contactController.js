@@ -1,5 +1,5 @@
 const express = require("express");
-const ObjectId = require('mongoose').ObjectId;
+const ObjectID = require('mongoose').ObjectID;
 const { Contact } = require("../models/contact");
 
 /**
@@ -51,7 +51,7 @@ module.exports = {
      * Reads a contact with specific ID
      */
     getById: function(req, res) {
-        if(!ObjectId.isValid(req.params.id)) {
+        if(!ObjectID.isValid(req.params.id)) {
             handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
         } else {
             Contact.findById(req.params.id, function(err, doc) {
@@ -68,7 +68,7 @@ module.exports = {
      * Updates details for contact with specific ID
      */
     update: function(req, res) {
-        if(!ObjectId.isValid(req.params.id)) {
+        if(!ObjectID.isValid(req.params.id)) {
             handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
         } else {
             let contact = {
@@ -91,7 +91,7 @@ module.exports = {
      * Deletes contact with specific ID
      */
     delete: function(req, res) {
-        if(!ObjectId.isValid(req.params.id)) {
+        if(!ObjectID.isValid(req.params.id)) {
             handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
         } else {
             Contact.findByIdAndDelete(req.params.id, function(err, result) {
