@@ -1,17 +1,9 @@
 const ObjectId = require('mongoose').Types.ObjectId;
 const { Contact } = require('../models/contact');
 
-/**
- * Handles generic errors.
- */
-function handleError(res, reason, message, code) {
-    console.log("ERROR: " + reason);
-    res.status(code || 500).json({"error": message});
-}
+const errorHandler = require('../shared/errorHandler');
 
-/**
- * Export CRUD functions to be used by router
- */
+// Export CRUD functions to be used by router.
 module.exports = {
 
     /**
@@ -22,7 +14,7 @@ module.exports = {
             if (!err) {
                 res.status(200).json(docs);
             } else {
-                handleError(res, err.message, "Failed to get contacts.");
+                errorHandler.handleError(res, err.message, "Failed to get contacts.");
             }
         });
     },
@@ -41,7 +33,7 @@ module.exports = {
             if (!err) {
                 res.status(201).json(doc);
             } else {
-                handleError(res, err.message, "Failed to create new contact.");    
+                errorHandler.handleError(res, err.message, "Failed to create new contact.");    
             }
         });
     },
@@ -57,7 +49,7 @@ module.exports = {
                 if(!err) {
                     res.status(200).json(doc);
                 } else {
-                    handleError(res, err.message, "Failed to get contact");
+                    errorHandler.handleError(res, err.message, "Failed to get contact");
                 }
             });
         }
@@ -80,7 +72,7 @@ module.exports = {
                 if(!err) {
                     res.status(200).json(doc);
                 } else {
-                    handleError(res, err.message, "Failed to update contact");
+                    errorHandler.handleError(res, err.message, "Failed to update contact");
                 }
             });
         }
@@ -97,7 +89,7 @@ module.exports = {
                if(!err) {
                    res.status(200).json(req.params.id);
                } else {
-                   handleError(res, err.message, "Failed to delete contact");
+                    errorHandler.handleError(res, err.message, "Failed to delete contact");
                }
             });
         }
