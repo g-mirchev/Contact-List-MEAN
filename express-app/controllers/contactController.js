@@ -1,5 +1,5 @@
 const ObjectId = require('mongoose').Types.ObjectId;
-const { Contact } = require("../models/contact");
+const { Contact } = require('../models/contact');
 
 /**
  * Handles generic errors.

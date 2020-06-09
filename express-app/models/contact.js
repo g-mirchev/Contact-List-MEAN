@@ -1,12 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 /**
- * Creates schema for Contact model.
- * 
- * @param {String} name The contact name is required
- * @param {String} email The contact email is required
- * @param {String} location The contact location is required
- * @param {String} primary The contact phone number is required
+ * Schema for Contact model.
  */
 const contactSchema = new mongoose.Schema({
     name: { 
