@@ -29,10 +29,16 @@ app.use("/api", routes);
 /**
  * Error Handlers
  */
-app.use()
+app.use((err, req, res, next) => {
+    if(err.name ==='ValidationError') {
+        let vallidationErrors = [];
+        Object.keys(err.errors).forEach(key => vallidationErrors.push(err.errors[key].message));
+        res.status(422).send(vallidationErrors);
+    }
+});
 
 app.use((err, req, res, next) => {
-    if(err.name === "UnauthorisedError") {
+    if(err.name === 'UnauthorisedError') {
         res.status(401).json({"message" : err.name + ": " + err.message});
     }
 });
