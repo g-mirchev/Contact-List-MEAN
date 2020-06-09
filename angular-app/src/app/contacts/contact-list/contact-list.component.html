@@ -4,7 +4,7 @@
         <button class="btn-warning" (click)="createNewContact()">+New</button>
     </div>
     <div class="container-fluid">
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
             <div class="row flex-grow-*">
                 <div *ngFor="let contact of contacts"
                     (click)="selectContact(contact)"
