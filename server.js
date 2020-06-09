@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 // Mount passport module.
 app.use(passport.initialize());
 // Add cors headers for debugging.
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
@@ -26,7 +26,12 @@ app.use(function(req, res, next) {
 });
 app.use("/api", routes);
 
-app.use(function(err, req, res, next) {
+/**
+ * Error Handlers
+ */
+app.use()
+
+app.use((err, req, res, next) => {
     if(err.name === "UnauthorisedError") {
         res.status(401).json({"message" : err.name + ": " + err.message});
     }

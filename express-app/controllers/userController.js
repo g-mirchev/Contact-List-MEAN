@@ -11,20 +11,21 @@ module.exports = {
      * on success returns Json web token.
      */
     register: function(req, res) {
-        let user = new User({
-            name = req.body.name,
-            email = req.body.email
-        });
-        
+        let user = new User();
+        user.name = req.body.name;
+        user.email = req.body.email;
         user.setPassword(req.body.password);
 
-        user.save(function(err) {
+        user.save((err, doc) => {
             if(!err) {
-                let token = user.generateJwt();
-                res.status(200).json({ "token" : token });
+                //let token = user.generateJwt();
+                res.status(200).json(doc);
+            }
+            else if(err.code == 11000){
+                errorHandler.handleError(res, err.message, 'Email already in use', 422);
             }
             else {
-                errorHandler.handleError(res, err.message, 'Failed to register user');
+               return next(err);
             }
         });
     },
@@ -34,7 +35,7 @@ module.exports = {
      * if successful return Json web token.
      */
     login: function(req, res) {
-        passport.authenticate('local', function(err, user, info) {
+        passport.authenticate('local', (err, user, info) => {
             let token;
 
             // Return if Passport encounters error.

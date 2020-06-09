@@ -7,11 +7,11 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        required: true
+        required: 'Email can not be empty'
     },
     name: {
         type: String,
-        required: true
+        required: 'Name can not be empty'
     },
     hash: String,
     salt: String
