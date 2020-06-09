@@ -5,7 +5,8 @@ import { Contact } from '../models/contact';
 @Injectable()
 export class ContactService {
 
-  private readonly contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
+  //private readonly contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
+  private readonly contactsUrl = "http://localhost:8080/api/contacts";
 
   constructor(private http: Http) {}
 
