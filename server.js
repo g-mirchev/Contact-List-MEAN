@@ -1,12 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const routes = require('./express-app/routes/routes');
-const passport = require('passport')
-
 require('dotenv').config();
 require('./express-app/models/db');
 require('./express-app/config/passport');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const routes = require('./express-app/routes/routes');
+const passport = require('passport')
 
 /**
  * Create new Express application.

@@ -1,5 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('express-jwt');
+let auth = jwt({
+    secret: process.env.JWT_SECRET,
+    userProperty: 'payload'
+});
 
 const contactController = require("../controllers/contactController");
 
