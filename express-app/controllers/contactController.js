@@ -3,7 +3,7 @@ const { Contact } = require('../models/contact');
 
 const errorHandler = require('../shared/errorHandler');
 
-// Export CRUD functions to be used by router.
+// Export CRUD functions for contact to be used by router.
 module.exports = {
 
     /**
