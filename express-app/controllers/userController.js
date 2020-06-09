@@ -1,6 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = mongoose.model('user');
+const User = mongoose.model('User');
 const errorHandler = require('../shared/errorHandler')
 
 // export crud functions for user to be used by router
@@ -14,7 +14,7 @@ module.exports = {
         let user = new User();
         user.name = req.body.name;
         user.email = req.body.email;
-        user.setPassword(req.body.password);
+        user.password = req.body.password;
 
         user.save((err, doc) => {
             if(!err) {

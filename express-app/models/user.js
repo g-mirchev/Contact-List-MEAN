@@ -1,43 +1,52 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Schema for the user model.
 const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: 'Name is required'
+    },
     email: {
         type: String,
         unique: true,
-        required: 'Email can not be empty'
+        required: 'Email is required'
     },
-    name: {
+    password: {
         type: String,
-        required: 'Name can not be empty'
-    },
-    hash: String,
-    salt: String
+        reqired: 'Password is required',
+        minlength: [8, 'Password must be atleast 8 characters long']
+    }, 
+    saltSecret: String
 });
 
+// Email validation using regular expression.
 userSchema.path('email').validate((val) => {
     emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(val);
 }, 'Invalid e-mail');
+
 /**
- * Generates a salt(string of unique characters) then
- * creates a hash with the given password and hash to avoid
- * saving actual plaintext password to database.
+ * Encrypt the password using bcryptjs upon calling
+ * user.save() and store the hashed password and salt secret.
  */
-userSchema.methods.setPassword = function(password) {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
-};
+userSchema.pre('save', function(next) {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(this.password, salt, (err, hash) => {
+            this.password = hash;
+            this.saltSecret = salt;
+            next();
+        });
+    });
+});
 
 /**
  * Creates a hash with the passed password and the saved salt then
  * compares the new hash to the old one. Returns the hash if they match.
  */
 userSchema.methods.validPassword = function(password) {
-    let hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
-    return this.hash === hash;
+    return bcrypt.compareSync(password, this.password);
 };
 
 /**
