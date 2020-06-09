@@ -26,6 +26,12 @@ app.use(function(req, res, next) {
 });
 app.use("/api", routes);
 
+app.use(function(err, req, res, next) {
+    if(err.name === "UnauthorisedError") {
+        res.status(401).json({"message" : err.name + ": " + err.message});
+    }
+});
+
 // Launch the server.
 const server = app.listen(process.env.PORT, () => {
     const port = server.address().port;
