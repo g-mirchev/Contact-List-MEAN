@@ -10,7 +10,7 @@ module.exports = {
      * Reads all contacts from database.
      */
     all: function(req, res) {
-        Contact.find({}, function(err, docs) {
+        Contact.find({}, (err, docs) => {
             if (!err) {
                 res.status(200).json(docs);
             } else {
@@ -29,7 +29,7 @@ module.exports = {
             location: req.body.location,
             primary: req.body.primary
         });
-        contact.save(function(err, doc) {
+        contact.save((err, doc) => {
             if (!err) {
                 res.status(201).json(doc);
             } else {
@@ -45,7 +45,7 @@ module.exports = {
         if(!ObjectId.isValid(req.params.id)) {
             handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
         } else {
-            Contact.findById(req.params.id, function(err, doc) {
+            Contact.findById(req.params.id, (err, doc) => {
                 if(!err) {
                     res.status(200).json(doc);
                 } else {
@@ -68,7 +68,7 @@ module.exports = {
                 location: req.body.location,
                 primary: req.body.primary
             };
-            Contact.findByIdAndUpdate(req.params.id, { $set: contact}, {new: true}, function(err, doc) {
+            Contact.findByIdAndUpdate(req.params.id, { $set: contact}, {new: true}, (err, doc) => {
                 if(!err) {
                     res.status(200).json(doc);
                 } else {
@@ -85,7 +85,7 @@ module.exports = {
         if(!ObjectId.isValid(req.params.id)) {
             handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
         } else {
-            Contact.findByIdAndDelete(req.params.id, function(err, result) {
+            Contact.findByIdAndDelete(req.params.id, (err, result) => {
                if(!err) {
                    res.status(200).json(req.params.id);
                } else {
