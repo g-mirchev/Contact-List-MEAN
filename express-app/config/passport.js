@@ -1,11 +1,9 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-const { User } = require('../models/user');
+const User = mongoose.model('User');
 
-/**
- * Passport local strategy definition.
- */
+// Passport local strategy definition.
 passport.use(new LocalStrategy({
     // set the username field to be 'email' instead of the default 'username'
     usernameField: 'email'

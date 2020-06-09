@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const routes = require('./express-app/routes/routes');
 const passport = require('passport')
 
-require('./express-app/models/db')
+require('dotenv').config();
+require('./express-app/models/db');
 require('./express-app/config/passport');
 
 /**
@@ -27,7 +28,7 @@ app.use(function(req, res, next) {
 app.use("/api", routes);
 
 // Launch the server.
-const server = app.listen(process.env.PORT || 8080, () => {
+const server = app.listen(process.env.PORT, () => {
     const port = server.address().port;
     console.log("App now running on port", port);
 });
