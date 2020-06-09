@@ -7,6 +7,7 @@ let auth = jwt({
 });
 
 const contactController = require("../controllers/contactController");
+const userController = require("../controllers/userController");
 
 /**
  * Creates endpoints mapped to appropriate controller functions.
@@ -22,5 +23,7 @@ router.post("/contacts/", contactController.create);
 router.get("/contacts/:id", contactController.getById);
 router.put("/contacts/:id", contactController.update);
 router.delete("/contacts/:id", contactController.delete);
+router.post("/register/", userController.register);
+router.post("/login/", userController.login);
 
 module.exports = router;
