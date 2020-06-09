@@ -6,6 +6,10 @@ const errorHandler = require('../shared/errorHandler')
 // export crud functions for user to be used by router
 module.exports = {
     
+    /**
+     * Handles client's request to register new user,
+     * on success returns Json web token.
+     */
     register: function(req, res) {
         let user = new User({
             name = req.body.name,
@@ -25,6 +29,10 @@ module.exports = {
         });
     },
 
+    /**
+     * Handles client's request to authenticate current user
+     * if successful return Json web token.
+     */
     login: function(req, res) {
         passport.authenticate('local', function(err, user, info) {
             let token;
