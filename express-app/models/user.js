@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
-/**
- * Schema for user model
- */
+// Schema for the user model.
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -54,9 +52,5 @@ userSchema.methods.generateJwt = function() {
     }, process.env.JWT_SECRET);
 };
 
-/**
- * Builds user model from user schema.
- */
-let User = mongoose.model("User", userSchema);
-
-module.exports = { User };
+// Defines User model from userSchema
+mongoose.model('User', userSchema);

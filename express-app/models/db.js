@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Connect to database
 mongoose.connect(process.env.MONGODB_URI, (err) => {
     if(err) {
         console.log(err);
@@ -8,5 +9,4 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
     console.log("MongoDB conection success.");
 });
 
-require('./contact');
 require('./user');
