@@ -7,3 +7,6 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
     }
     console.log("MongoDB conection success.");
 });
+
+require('./contact');
+require('./user');
