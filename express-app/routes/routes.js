@@ -6,8 +6,9 @@ let auth = jwt({
     userProperty: 'payload'
 });
 
-const contactController = require("../controllers/contactController");
-const userController = require("../controllers/userController");
+const contactController = require('../controllers/contactController');
+const userController = require('../controllers/userController');
+const jwtHelper = require('../config/jwtHelper');
 
 /**
  * Creates endpoints mapped to appropriate controller functions.
@@ -18,7 +19,7 @@ const userController = require("../controllers/userController");
  * PUT      "/contacts/:id"     updates contact found by ID
  * DELETE   "/contacts/:id"     deletes contact found by ID
  */
-router.get("/contacts/", contactController.all);
+router.get("/contacts/", jwtHelper.verifyJwt, contactController.all);
 router.post("/contacts/", contactController.create);
 router.get("/contacts/:id", contactController.getById);
 router.put("/contacts/:id", contactController.update);
