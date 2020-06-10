@@ -10,6 +10,7 @@ import { ContactDetailsComponent } from './contacts/contact-details/contact-deta
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
     ContactDetailsComponent,
     ContactListComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
