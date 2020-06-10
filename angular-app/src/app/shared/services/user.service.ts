@@ -12,6 +12,7 @@ export class UserService {
     password: ''
   };
 
+  // Header for request that don't require authorization.
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth' : 'True' }) };
 
   constructor(private http: HttpClient) {}
@@ -22,7 +23,7 @@ export class UserService {
    * @param user  the user information as object
    */
   postUser(user: User) {
-    return this.http.post(environment.apiBaseUrl + '/register', user);
+    return this.http.post(environment.apiBaseUrl + '/register', user, this.noAuthHeader);
   }
 
   /**
@@ -31,7 +32,7 @@ export class UserService {
    * @param credentials Backend validation will be run over these
    */
   login(credentials) {
-    return this.http.post(environment.apiBaseUrl + '/login', credentials);
+    return this.http.post(environment.apiBaseUrl + '/login', credentials, this.noAuthHeader);
   }
 
   /**

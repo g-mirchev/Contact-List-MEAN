@@ -4,6 +4,7 @@ import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     children: [{path: '', component: SignInComponent}]
   },
   {
-    path: 'contacts', component: ContactListComponent
+    path: 'contacts', component: ContactListComponent, canActivate:[AuthGuard]
   },
   {
     path: '', redirectTo: '/login', pathMatch: 'full'
