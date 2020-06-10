@@ -11,6 +11,7 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
 import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { UserService } from './shared/services/user.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
