@@ -7,8 +7,7 @@ const errorHandler = require('../shared/errorHandler')
 module.exports = {
     
     /**
-     * Handles client's request to register new user,
-     * on success returns Json web token.
+     * Handles client's request to register new user.
      */
     register: function(req, res, next) {
         let user = new User();
@@ -32,24 +31,23 @@ module.exports = {
 
     /**
      * Handles client's request to authenticate current user
-     * if successful return Json web token.
+     * using passport authentication
      */
     login: function(req, res) {
         passport.authenticate('local', (err, user, info) => {
-            let token;
-
             // Return if Passport encounters error.
             if(err) {
                 errorHandler.handleError(res, err.message, 'Passport error', 404)
                 return
             }
-            // If the user is found
+            // If the user is found return token.
             if(user){
-                token = user.generateJwt();
+                let token = user.generateJwt();
                 res.status(200).json({ "token" : token });
             }
+            // Returns if credentials are wrong
             else {
-                res.status(404).json(info)
+                res.status(401).json(info)
             }
         })(req, res);
     }
