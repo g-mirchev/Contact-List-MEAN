@@ -10,7 +10,7 @@ module.exports = {
      * Handles client's request to register new user,
      * on success returns Json web token.
      */
-    register: function(req, res) {
+    register: function(req, res, next) {
         let user = new User();
         user.name = req.body.name;
         user.email = req.body.email;
