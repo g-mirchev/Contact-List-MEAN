@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 
 
 const routes: Routes = [
@@ -11,10 +12,14 @@ const routes: Routes = [
     children: [{path: '', component: SignUpComponent}]
   },
   {
-    path: '', redirectTo: '/signup', pathMatch: 'full'
+    path: 'login', component: UserComponent,
+    children: [{path: '', component: SignInComponent}]
   },
   {
     path: 'contacts', component: ContactListComponent
+  },
+  {
+    path: '', redirectTo: '/login', pathMatch: 'full'
   }
 ];
 
