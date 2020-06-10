@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { environment } from '../../../environments/environment';
-import { relative } from 'path';
 
 @Injectable()
 export class UserService {
