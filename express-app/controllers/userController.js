@@ -2,6 +2,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const errorHandler = require('../shared/errorHandler')
+const _ = require('lodash');
 
 // export crud functions for user to be used by router
 module.exports = {
@@ -50,5 +51,17 @@ module.exports = {
                 res.status(401).json(info)
             }
         })(req, res);
+    },
+
+    userProfile: function(req, res, next) {
+        User.findOne({ _id: req._id },
+            (err, user) => {
+                if(!user) {
+                    res.status(404).json({ status: false, message: 'User not found.'});
+                }
+                else {
+                    res.status(200).json({ status: true, user : _.pick(user, ['name', 'email']) });
+                }
+            });
     }
 }
