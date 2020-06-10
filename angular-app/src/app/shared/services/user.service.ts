@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { environment } from '../../../environments/environment';
+import { relative } from 'path';
 
 @Injectable()
 export class UserService {
@@ -48,9 +49,38 @@ export class UserService {
   }
 
   /**
-   * 
+   * Deletes token from local storage.
    */
   deleteToken() {
     localStorage.removeItem('token');
+  }
+
+  /**
+   * If token exists, extract and decode (from base 64) the
+   * payload of the token.
+   */
+  getUserPayload() {
+    let token = this.getToken();
+    if (token) {
+      let userPayload = atob(token.split('.')[1]);
+      return JSON.parse(userPayload);
+    }
+    else{
+      return null;
+    }
+  }
+
+  /**
+   * Checks if there is a present token and that
+   * it hasn't expired.
+   */
+  isLoggedIn() {
+    let userPayload = this.getUserPayload();
+    if (userPayload) {
+      return userPayload.exp > Date.now() / 1000;
+    }
+    else {
+      return false;
+    }
   }
 }
