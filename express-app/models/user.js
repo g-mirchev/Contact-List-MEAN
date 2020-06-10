@@ -51,18 +51,15 @@ userSchema.methods.validPassword = function(password) {
 
 /**
  * Generates a Jason Web Token signed with the 
- * current user info, expiration time, and secret key.
+ * current user ID, expiration time, and secret key.
  */
 userSchema.methods.generateJwt = function() {
-    let expiry = new Date();
-    expiry.setDate(expiry.getDate() + 7);
-
     return jwt.sign({
-        _id: this._id,
-        email: this.email,
-        name: this.name,
-        exp: parseInt(expiry.getTime() / 1000),
-    }, process.env.JWT_SECRET);
+        _id: this._id
+    }, process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_EXP
+        });
 };
 
 // Defines User model from userSchema
