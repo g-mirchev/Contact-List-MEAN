@@ -19,7 +19,7 @@ const contactSchema = new mongoose.Schema({
         required: true
     },
     user_id: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     }
 });
