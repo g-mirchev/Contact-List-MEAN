@@ -1,19 +1,18 @@
 <div *ngIf="contact" class="formContent">
-    <div class= "">
-        <h2 *ngIf="contact._id">Contact Details</h2>
-        <h2 *ngIf="!contact._id">New Contact</h2>
+    <div class="formheader">
+      <div class="formtitle" *ngIf="contact._id">Contact Details</div>
+      <div class="formtitle" *ngIf="!contact._id">New Contact</div>
+      <button class="closeform">X</button>
     </div>
-    <div class="">
-        <form #contactForm="ngForm">
-          <input type="text" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
-          <input type="text" name="contact-email" [(ngModel)]="contact.email" placeholder="Email"/>
-          <input type="text"name="contact-location" [(ngModel)]="contact.location" placeholder="Location"/>
-          <input type=text name="contact-primary" [(ngModel)]="contact.primary" placeholder="Primary"/>
-          <input type="button" value="Create" *ngIf="!contact._id" (click)="createContact(contact)">
-          <div class="d-flex justify-content-between">
-            <input type="button" value="Update" *ngIf="contact._id" (click)="updateContact(contact)">
-            <input type="button" value="Delete" *ngIf="contact._id" (click)="deleteContact(contact._id)">
-          </div>
-        </form>
-      </div>
+      <form #contactForm="ngForm">
+        <input type="text" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
+        <input type="text" name="contact-email" [(ngModel)]="contact.email" placeholder="Email"/>
+        <input type="text"name="contact-location" [(ngModel)]="contact.location" placeholder="Location"/>
+        <input type=text name="contact-primary" [(ngModel)]="contact.primary" placeholder="Primary"/>
+        <input type="button" value="Create" *ngIf="!contact._id" (click)="createContact(contact)">
+        <div class="d-flex justify-content-between">
+          <input type="button" value="Update" *ngIf="contact._id" (click)="updateContact(contact)">
+          <input type="button" value="Delete" *ngIf="contact._id" (click)="deleteContact(contact._id)">
+        </div>
+      </form>
 </div>

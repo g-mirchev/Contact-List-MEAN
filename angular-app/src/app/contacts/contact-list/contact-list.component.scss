@@ -42,11 +42,16 @@
     -ms-transition:     all 0.3s ease-in-out;
     -o-transition:      all 0.3s ease-in-out;
     transition:         all 0.3s ease-in-out;
-    &:hover{
+    &:hover {
         background-color: #fdf473;
         -webkit-box-shadow: 3px 10px 20px 1px #0d061a;
         box-shadow:         3px 10px 20px 1px #0d061a;
     }
+}
+.active {
+        background-color: #fdf473;
+        -webkit-box-shadow: 3px 10px 20px 1px #0d061a;
+        box-shadow:         3px 10px 20px 1px #0d061a;
 }
 .cardheader {
     border-bottom: 1px solid #674dbe;
