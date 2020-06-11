@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-/**
- * Schema for Contact model.
- */
+// Schema for contact model.
 const contactSchema = new mongoose.Schema({
     name: { 
         type: String,
@@ -19,12 +17,14 @@ const contactSchema = new mongoose.Schema({
     primary: {
         type: String,
         required: true
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 });
 
-/**
- * Builds contact model from contact schema.
- */
+// Defines contact model from contact schema.
 let Contact = mongoose.model("Contact", contactSchema);
 
 module.exports = { Contact };
