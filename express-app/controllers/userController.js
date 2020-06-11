@@ -8,7 +8,7 @@ const _ = require('lodash');
 /** Export functions for user to be used by router */
 module.exports = {
     
-    /** Handles client's request to register new user. */
+    /** Handles client request to register new user. */
     register: function(req, res, next) {
         let user = new User();
         user.name = req.body.name;
@@ -30,7 +30,7 @@ module.exports = {
     },
 
     /**
-     * Handles client's request to authenticate current user
+     * Handles client request to authenticate current user
      * using passport authentication
      */
     login: function(req, res) {
@@ -52,6 +52,11 @@ module.exports = {
         })(req, res);
     },
 
+    /**
+     * Returns current user information.
+     * (Unused. Uncomment if neeeded.)
+     */
+    /**
     userProfile: function(req, res, next) {
         User.findOne({ _id: req._id },
             (err, user) => {
@@ -62,5 +67,5 @@ module.exports = {
                     res.status(200).json({ status: true, user : _.pick(user, ['name', 'email']) });
                 }
             });
-    }
+    }*/
 }
