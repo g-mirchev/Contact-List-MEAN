@@ -1,4 +1,5 @@
-/* Container for the login/signup component. */
+/* Containers. */
+
 .wrapper {
     display: flex;
     align-items: center;
@@ -8,3 +9,24 @@
     min-height: 100%;
     padding: 20px;
   }
+
+  /* Form tabs */
+
+.formTab {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
+}
+
+.formTab.inactive {
+  color: #cccccc;
+}
+
+.formTab.active {
+  color: #000000;
+  border-bottom: 2px solid #7f5fe9;
+}
