@@ -1,29 +1,19 @@
-<div *ngIf="contact" class="contactdisplay">
+<div *ngIf="contact" class="formContent">
     <div class= "">
         <h2 *ngIf="contact._id">Contact Details</h2>
         <h2 *ngIf="!contact._id">New Contact</h2>
     </div>
     <div class="">
         <form #contactForm="ngForm">
-          <div class="form-group">
-            <label for="contact-name">Name</label>
-            <input class="form-control" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
+          <input type="text" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
+          <input type="text" name="contact-email" [(ngModel)]="contact.email" placeholder="Email"/>
+          <input type="text"name="contact-location" [(ngModel)]="contact.location" placeholder="Location"/>
+          <input type=text name="contact-primary" [(ngModel)]="contact.primary" placeholder="Primary"/>
+          <input type="button" value="Create" *ngIf="!contact._id" (click)="createContact(contact)">
+          <div class="d-flex justify-content-between">
+            <input type="button" value="Update" *ngIf="contact._id" (click)="updateContact(contact)">
+            <input type="button" value="Delete" *ngIf="contact._id" (click)="deleteContact(contact._id)">
           </div>
-          <div class="form-group">
-            <label for="contact-email">Email</label>
-            <input class="form-control" name="contact-email" [(ngModel)]="contact.email" placeholder="Email"/>
-          </div>
-          <div class="form-group">
-            <label for="contact-phone-mobile">Location</label>
-            <input class="form-control" name="contact-location" [(ngModel)]="contact.location" placeholder="Location"/>
-          </div>
-          <div class="form-group">
-            <label for="contact-phone-work">Primary</label>
-            <input class="form-control" name="contact-primary" [(ngModel)]="contact.primary" placeholder="Primary"/>
-          </div>
-            <button class="btn btn-primary" *ngIf="!contact._id" (click)="createContact(contact)">Create</button>
-            <button class="btn btn-info" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
-            <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
         </form>
       </div>
 </div>
