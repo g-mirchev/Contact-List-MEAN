@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from "../../shared/models/contact.model";
 import { ContactService } from "../../shared/services/contact.service";
+import { UserService } from "../../shared/services/user.service";
 import { ContactDetailsComponent } from '../contact-details/contact-details.component';
 
 @Component({
@@ -14,7 +15,7 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContact: Contact;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private userService: UserService) { }
 
   /**
    * Populates the contacts array with data from API call to backend.
@@ -57,7 +58,8 @@ export class ContactListComponent implements OnInit {
       name: '',
       email: '',
       location: '',
-      primary: ''
+      primary: '',
+      user_id: this.userService.getUserId(),
     };
     this.selectContact(contact);
   }
