@@ -10,7 +10,7 @@ module.exports = {
      * Reads all contacts from database.
      */
     all: function(req, res) {
-        Contact.find({}, (err, docs) => {
+        Contact.find({user_id: req._id}, (err, docs) => {
             if (!err) {
                 res.status(200).json(docs);
             } else {
@@ -27,7 +27,8 @@ module.exports = {
             name: req.body.name,
             email: req.body.email,
             location: req.body.location,
-            primary: req.body.primary
+            primary: req.body.primary,
+            user_id: req.body.user_id
         });
         contact.save((err, doc) => {
             if (!err) {
