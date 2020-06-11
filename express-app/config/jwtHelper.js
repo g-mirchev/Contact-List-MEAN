@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken');
 
 /**
  * Calls jsonwebtoken.verify if the current request has an 
- * 'authorization' header.
+ * 'authorization' header. If the token passes verification
+ * req._id is given the value of the user._id.
  */
 module.exports.verifyJwt = function(req, res, next) {
     let token;
