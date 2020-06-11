@@ -92,7 +92,7 @@ input[type=text],input[type=password] {
 }
 
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
-border-bottom: 2px solid #ed5558;
+  border-bottom: 2px solid #ed5558;
 }
 
 .validation-message{
