@@ -1,20 +1,28 @@
 <div class="contacts">
-    <div class="contactsheader bottomshadow">
+    <div class="contactsheader">
         <h1>Contacts</h1>
         <button class="btn-warning" (click)="createNewContact()">+New</button>
     </div>
-    <div class="container-fluid">
+    <div class="wrapper">
         <div class="d-flex justify-content-between">
             <div class="row flex-grow-*">
                 <div *ngFor="let contact of contacts"
                     (click)="selectContact(contact)"
                     [class.active]="contact ===selectedContact">
-                    <div class="card contactscard boxshadow">
-                        <div class="card-body">
-                            <h5 class="card-title">{{contact.name}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{contact.email}}</h6>
-                            <div>{{contact.location}}</div>
-                            <div>{{contact.primary}}</div>
+                    <div class="contactscard">
+                        <div class="cardheader">
+                            <div class="cardtitle">{{contact.name}}</div>
+                            <div class="cardsubtitle">{{contact.email}}</div>
+                        </div>
+                        <div class="cardinfo">
+                            <div>
+                                <div class="infolabel">location:</div>
+                                <div class="info">{{contact.location}}</div>
+                            </div>
+                            <div>
+                                <div class="infolabel">primary:</div>
+                                <div class="info">{{contact.primary}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

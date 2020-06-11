@@ -7,26 +7,57 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 30px;
     padding: 5px 10px;
     background-image: linear-gradient(#204da1, #09032c);
     color: #faecd8;
-
+    -webkit-box-shadow: 0px 8px 9px -9px black;
+    box-shadow:         0px 8px 9px -9px black;
 }
-.contactscard{
-    width: 300px;
+.wrapper {
+    width: 100%;
+    padding: 20px;
+}
+.contactscard {
+    padding: 25px;
+    width: 330px;
+    height: 330px;
     margin-bottom: 15px;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #ffffff;
+    background-color: #fffdea;
+    -webkit-box-shadow: 3px 3px 9px 1px #150b446e;
+    box-shadow:         3px 3px 9px 1px #150b446e;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius:         10px 10px 10px 10px;
 }
-.bottomshadow{
-    -webkit-box-shadow: 0px 8px 9px -9px black;
-    -moz-box-shadow:    0px 8px 9px -9px black;
-    box-shadow:         0px 8px 9px -9px black;
+.cardheader {
+    border-bottom: 1px solid #674dbe;
+    padding-bottom: 10px;
 }
-.boxshadow{
-    -moz-box-shadow:    3px 3px 9px 1px #ccc;
-    -webkit-box-shadow: 3px 3px 9px 1px #ccc;
-    box-shadow:         3px 3px 9px 1px #ccc;
+.cardtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #060d77;
+}
+.cardsubtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666666;
+    margin-top: 1px;
+}
+.cardinfo {
+    margin-top: 10px;
+    width: 100%;
+    
+}
+.infolabel {
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 12;
+    font-weight: 300;
+    color: #6d6d6d;
+}
+.info {
+    text-align: center;
 }
