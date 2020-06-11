@@ -4,5 +4,4 @@ export class Contact {
     email: string;
     location: string;
     primary: string;
-    user_id: string;
 }

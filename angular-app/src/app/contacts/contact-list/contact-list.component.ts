@@ -59,7 +59,6 @@ export class ContactListComponent implements OnInit {
       email: '',
       location: '',
       primary: '',
-      user_id: this.userService.getUserId(),
     };
     this.selectContact(contact);
   }
