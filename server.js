@@ -1,3 +1,4 @@
+/** Imports and configuration */
 require('dotenv').config();
 require('./express-app/models/db');
 require('./express-app/config/passport');
@@ -7,14 +8,11 @@ const bodyParser = require('body-parser');
 const routes = require('./express-app/routes/routes');
 const passport = require('passport')
 
-/**
- * Create new Express application.
- */
+/** Create new Express application.*/
 const app = express();
 
-// Mount body parser.
+/** Middleware */
 app.use(bodyParser.json());
-// Mount passport module.
 app.use(passport.initialize());
 // Add cors headers for debugging.
 app.use((req, res, next) => {
@@ -26,9 +24,7 @@ app.use((req, res, next) => {
 });
 app.use("/api", routes);
 
-/**
- * Error Handlers
- */
+/** Error Handlers*/
 app.use((err, req, res, next) => {
     if(err.name ==='ValidationError') {
         let vallidationErrors = [];
@@ -43,7 +39,7 @@ app.use((err, req, res, next) => {
     }
 });
 
-// Launch the server.
+/** Launch the server. */
 const server = app.listen(process.env.PORT, () => {
     const port = server.address().port;
     console.log("App now running on port", port);

@@ -1,6 +1,7 @@
+/** Imports */
 const mongoose = require('mongoose');
 
-// Schema for contact model.
+/** Schema for contact model. */
 const contactSchema = new mongoose.Schema({
     name: { 
         type: String,
@@ -24,7 +25,8 @@ const contactSchema = new mongoose.Schema({
     }
 });
 
-// Defines contact model from contact schema.
+/** Defines contact model from contact schema. */
 let Contact = mongoose.model("Contact", contactSchema);
 
+/** Exports */
 module.exports = { Contact };

@@ -1,15 +1,14 @@
+/** Imports */
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const errorHandler = require('../shared/errorHandler')
 const _ = require('lodash');
 
-// export crud functions for user to be used by router
+/** Export functions for user to be used by router */
 module.exports = {
     
-    /**
-     * Handles client's request to register new user.
-     */
+    /** Handles client's request to register new user. */
     register: function(req, res, next) {
         let user = new User();
         user.name = req.body.name;
