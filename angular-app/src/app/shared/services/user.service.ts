@@ -11,7 +11,7 @@ export class UserService {
     password: ''
   };
 
-  // Header for request that don't require authorization.
+  // Header for requests that don't require authorization.
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth' : 'True' }) };
 
   constructor(private http: HttpClient) {}
