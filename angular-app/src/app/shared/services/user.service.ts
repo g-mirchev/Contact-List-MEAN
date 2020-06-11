@@ -83,4 +83,17 @@ export class UserService {
       return false;
     }
   }
+
+  /**
+   * Returns the user ID from the jwt payload.
+   */
+  getUserId() {
+    let userPayload = this.getUserPayload();
+    if(userPayload) {
+      return userPayload._id;
+    }
+    else{
+      return null;
+    }
+  }
 }
