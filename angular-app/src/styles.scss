@@ -13,7 +13,7 @@ body {
 
 /* Structures */
 
-// Container for form elements.
+/* Container for form elements. */
 .formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -30,7 +30,7 @@ body {
 
 /** Form tabs */
 
-// Tab to switch form types (login or signup).
+/* Tab to switch form types (login or signup). */
 .formTab {
   text-align: center;
   font-size: 16px;
@@ -50,9 +50,9 @@ body {
   border-bottom: 2px solid #7f5fe9;
 }
 
-/** Form Typography*/
+/* Form Typography*/
 
-// Style the form buttons.
+/* Style the form buttons. */
 input[type=button], input[type=submit]  {
   cursor: pointer;
   background-color: #9e83f5;
@@ -73,29 +73,23 @@ input[type=button], input[type=submit]  {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #674dbe;
+  }
+  &:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  &:disabled {
+    background-color: #f5f6f6;
+    color: #7d7d7d;
+  }
 }
 
-// Form buttons on hooover.
-input[type=button]:hover, input[type=submit]:hover {
-  background-color: #674dbe;
-}
-
-// Form buttons when clicked.
-input[type=button]:active, input[type=submit]:active {
-  -moz-transform: scale(0.95);
-  -webkit-transform: scale(0.95);
-  -o-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
-}
-
-// Form buttons when disabled.
-input[type=submit]:disabled{
-  background-color: #f5f6f6;
-  color: #7d7d7d;
-}
-
-// Style for form fields.
+/* Style for form fields. */
 input[type=text],input[type=password] {
   background-color: #fff7ff;
   color: #0d0d0d;
@@ -113,43 +107,39 @@ input[type=text],input[type=password] {
   transition: all 0.3s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
+  &:focus {
+    background-color: #ffffff;
+    border-bottom: 2px solid #674dbe;
+  }
+  &:placeholder{
+    color: #cccccc;
+  }
 }
 
-// Makes selected form field white and gives it purple underline.
-input[type=text]:focus,input[type=password]:focus {
-  background-color: #ffffff;
-  border-bottom: 2px solid #674dbe;
-}
-
-// Gray placeholder.
-input[type=text]:placeholder {
-  color: #cccccc;
-}
-
-// Makes gives red underline to textbox that has failed form validation.
+/* Makes gives red underline to textbox that has failed form validation. */
 input[type=text].invalid-textbox,input[type=password].invalid-textbox{
 border-bottom: 2px solid #ed5558;
 }
 
-// Appears under form field that has failed validation.
+/* Appears under form field that has failed validation. */
 .validation-message{
   color:#ed5558;
 }
 
 /** Animations */
 
-// Pops up if server returns error on login/signup.
+/* Pops up if server returns error on login/signup. */
 .alert {
   padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
+  background-color: #f44336;
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
-// Pops up on succesfull registration.
+/* Pops up on succesfull registration. */
 .success{
   padding: 20px;
-  background-color:#249424; /* Green */
-  color: white;
+  background-color:#249424;
+  color: #ffffff;
   margin-bottom: 15px;
 }
