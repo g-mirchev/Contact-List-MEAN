@@ -4,6 +4,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /* Generic */
+html{
+  //background-color: #7347b9e1;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -18,7 +21,7 @@ body {
   border-radius: 10px 10px 10px 10px;
   background: #ffffff;
   width: 100%;
-  max-width: 450px;
+  max-width: 420px;
   position: relative;
   -webkit-box-shadow: 0 10px 20px 0 #150b446e;
   box-shadow: 0 10px 20px 0 #150b446e;
@@ -43,7 +46,7 @@ input[type=button], input[type=submit]  {
   box-shadow: 0 10px 10px 0 #150b446e;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius:         5px 5px 5px 5px;
-  margin: 15px 30px 40px 30px;
+  margin: 15px 10px 40px 10px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition:    all 0.3s ease-in-out;
   -ms-transition:     all 0.3s ease-in-out;
