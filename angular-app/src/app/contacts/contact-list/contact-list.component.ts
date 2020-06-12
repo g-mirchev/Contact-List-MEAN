@@ -20,6 +20,7 @@ export class ContactListComponent implements OnInit {
    * Populates the contacts array with data from API call to backend.
    */
   ngOnInit(): void {
+    this.userService.setUserDetails();
     this.contactService
       .getContacts()
       .then((contacts: Contact[]) => {
