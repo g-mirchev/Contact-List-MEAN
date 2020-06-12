@@ -15,14 +15,14 @@ body {
 
 .formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius:         10px 10px 10px 10px;
   background: #ffffff;
   width: 100%;
   max-width: 420px;
   min-width: 420px;
   position: relative;
   -webkit-box-shadow: 0 10px 20px 0 #150b446e;
-  box-shadow: 0 10px 20px 0 #150b446e;
+  box-shadow:         0 10px 20px 0 #150b446e;
   text-align: center;
   margin-left: 10px;
   margin-right: 10px;
@@ -41,7 +41,7 @@ input[type=button], input[type=submit]  {
   text-transform: uppercase;
   font-size: 16px;
   -webkit-box-shadow: 0 10px 10px 0 #150b446e;
-  box-shadow: 0 10px 10px 0 #150b446e;
+  box-shadow:         0 10px 10px 0 #150b446e;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius:         5px 5px 5px 5px;
   margin: 15px 10px 40px 10px;
