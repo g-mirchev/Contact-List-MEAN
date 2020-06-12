@@ -1,9 +1,16 @@
-<div class="contacts">
+<div class="wrapper">
     <div class="contactsheader">
         <h1>Contacts</h1>
         <button class="newbutton" (click)="createNewContact()">+New</button>
+        <div class="usersection">
+            <div class="userinfo">
+                <div >User: {{userService.currentUserDetails.name}}</div>
+                <div>{{userService.currentUserDetails.email}}</div>  
+            </div>
+            <button class="logout" (click)="logout()">Sign Out</button>
+        </div>
     </div>
-    <div class="wrapper">
+    <div class="contacts">
         <div class="d-flex justify-content-between">
             <div class="row flex-grow-*">
                 <div class="contactscard" *ngFor="let contact of contactService.contacts"

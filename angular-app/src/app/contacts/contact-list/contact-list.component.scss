@@ -1,10 +1,10 @@
 /* Containers */
 
-.contacts{
+.wrapper{
     width: 100%;
     height: 100vh;
 }
-.wrapper {
+.contacts {
     width: 100%;
     padding: 20px;
 }
@@ -49,6 +49,43 @@
     
 }
 
+/* User info */
+
+.usersection {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.userinfo {
+    
+}
+
+.logout {
+    margin-left: 20px;
+    border: none;
+    height: 100%;
+    color:  #ffffff;
+    background-image: linear-gradient(#674dbe, #09032c);
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius:         10px 10px 10px 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+    &:hover {
+        background-image: linear-gradient(#09032c,#674dbe);
+    }
+    &:active {
+        -moz-transform:     scale(0.95);
+        -webkit-transform:  scale(0.95);
+        -o-transform:       scale(0.95);
+        -ms-transform:      scale(0.95);
+        transform:          scale(0.95);
+    }
+}
+
 /* Contact card styling */
 
 .contactscard {
@@ -75,31 +112,37 @@
         box-shadow:         3px 10px 20px 1px #0d061a;
     }
 }
+
 .active {
         background-color: #fdf473;
         -webkit-box-shadow: 3px 10px 20px 1px #0d061a;
         box-shadow:         3px 10px 20px 1px #0d061a;
 }
+
 .cardheader {
     border-bottom: 1px solid #674dbe;
     padding-bottom: 10px;
 }
+
 .cardtitle {
     font-size: 24px;
     font-weight: 600;
     color: #060d77;
 }
+
 .cardsubtitle {
     font-size: 16px;
     font-weight: 300;
     color: #666666;
     margin-top: 1px;
 }
+
 .cardinfo {
     margin-top: 10px;
     width: 100%;
     
 }
+
 .infolabel {
     margin-top: 5px;
     width: 100%;
@@ -108,6 +151,8 @@
     font-weight: 300;
     color: #6d6d6d;
 }
+
 .info {
     text-align: center;
 }
+
