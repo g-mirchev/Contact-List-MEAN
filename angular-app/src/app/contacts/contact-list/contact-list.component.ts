@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from "../../shared/models/contact.model";
 import { ContactService } from "../../shared/services/contact.service";
 import { UserService } from "../../shared/services/user.service";
-import { ContactDetailsComponent } from '../contact-details/contact-details.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss'],
-  providers: [ContactService]
+  providers: []
 })
 export class ContactListComponent implements OnInit {
 
   
 
-  constructor(public contactService: ContactService, private userService: UserService) { }
+  constructor(public contactService: ContactService, public userService: UserService, private router: Router) { }
 
   /**
    * Populates the contacts array with data from API call to backend.
@@ -101,5 +101,10 @@ export class ContactListComponent implements OnInit {
       return contact._id === this.contactService.selectedContact._id;
     }   
   }
-  
+
+  logout(){
+    this.userService.deleteToken();
+    this.router.navigateByUrl('/login');
+  }
+
 }
