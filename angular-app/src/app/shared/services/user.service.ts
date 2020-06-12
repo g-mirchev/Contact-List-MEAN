@@ -11,7 +11,7 @@ export class UserService {
     password: ''
   };
 
-  currentUserDetails: {
+  currentUserDetails = {
     name: '',
     email: '',
   }
@@ -99,4 +99,5 @@ export class UserService {
       this.currentUserDetails.email = userPayload.email;
     }
   }
+  
 }
