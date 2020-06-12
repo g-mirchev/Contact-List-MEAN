@@ -52,7 +52,7 @@ userSchema.methods.validPassword = function(password) {
 
 /**
  * Generates a Jason Web Token signed with the 
- * current user ID, expiration time, and secret key.
+ * current user ID, name, email, expiration time, and secret key.
  */
 userSchema.methods.generateJwt = function() {
     return jwt.sign({
