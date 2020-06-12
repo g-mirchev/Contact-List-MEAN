@@ -18,6 +18,8 @@ export class ContactDetailsComponent {
   @Input()
   deleteHandler: Function;
 
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   constructor(public contactService: ContactService) { }
 
   createContact(contact: Contact) {

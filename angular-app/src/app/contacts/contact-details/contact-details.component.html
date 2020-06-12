@@ -4,15 +4,59 @@
       <div class="formtitle" *ngIf="!contact._id">New Contact</div>
       <button class="closeform" (click)="contactService.selectContact(null)">X</button>
     </div>
-      <form #contactForm="ngForm">
-        <input type="text" name="contact-name" [(ngModel)]="contact.name" placeholder="Name"/>
-        <input type="text" name="contact-email" [(ngModel)]="contact.email" placeholder="Email"/>
-        <input type="text"name="contact-location" [(ngModel)]="contact.location" placeholder="Location"/>
-        <input type=text name="contact-primary" [(ngModel)]="contact.primary" placeholder="Primary"/>
-        <input type="button" value="Create" *ngIf="!contact._id" (click)="createContact(contact)">
+    <div *ngIf="!contact._id">
+      <form #newContactForm="ngForm" (ngSubmit)="newContactForm.valid && createContact(contact)">
+        <input type="text" name="contact-name" #name="ngModel" [(ngModel)]="contact.name" placeholder="Name" 
+        required [ngClass]="{'invalid-textbox': newContactForm.submitted && !name.valid}"/>
+        <div *ngIf="newContactForm.submitted && !name.valid">
+          <label class="validation-message">Name is required.</label>
+        </div>
+        <input type="text" name="contact-email" #email="ngModel" [(ngModel)]="contact.email" placeholder="Email" 
+        required [pattern]="emailRegex" [ngClass]="{'invalid-textbox': newContactForm.submitted && !email.valid}"/>
+        <div *ngIf="newContactForm.submitted && email.errors">
+          <label *ngIf="email.errors.required" class="validation-message">Email is required.</label>
+          <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+        </div>
+        <input type="text"name="contact-location" #location="ngModel" [(ngModel)]="contact.location" placeholder="Location" 
+        required [ngClass]="{'invalid-textbox': newContactForm.submitted && !location.valid}"/>
+        <div *ngIf="newContactForm.submitted && !location.valid">
+          <label class="validation-message">Location is required.</label>
+        </div>
+        <input type="text" name="contact-primary" #primary="ngModel" [(ngModel)]="contact.primary" placeholder="Primary" 
+        required [ngClass]="{'invalid-textbox': newContactForm.submitted && !location.valid}"/>
+        <div *ngIf="newContactForm.submitted && !primary.valid">
+          <label class="validation-message">Primary is required.</label>
+        </div>
+        <input type="submit" value="Create"/>
+      </form>
+    </div>
+    <div *ngIf="contact._id">
+      <form #contactForm="ngForm" (ngSubmit)="contactForm.valid && updateContact(contact)">
+        <input type="text" name="contact-name" #name="ngModel" [(ngModel)]="contact.name" placeholder="Name" 
+        required [ngClass]="{'invalid-textbox': contactForm.submitted && !name.valid}"/>
+        <div *ngIf="contactForm.submitted && !name.valid">
+          <label class="validation-message">Name is required.</label>
+        </div>
+        <input type="text" name="contact-email" #email="ngModel" [(ngModel)]="contact.email" placeholder="Email" 
+        required [pattern]="emailRegex" [ngClass]="{'invalid-textbox': contactForm.submitted && !email.valid}"/>
+        <div *ngIf="contactForm.submitted && email.errors">
+          <label *ngIf="email.errors.required" class="validation-message">Email is required.</label>
+          <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+        </div>
+        <input type="text"name="contact-location" #location="ngModel" [(ngModel)]="contact.location" placeholder="Location" 
+        required [ngClass]="{'invalid-textbox': contactForm.submitted && !location.valid}"/>
+        <div *ngIf="contactForm.submitted && !location.valid">
+          <label class="validation-message">Location is required.</label>
+        </div>
+        <input type="text" name="contact-primary" #primary="ngModel" [(ngModel)]="contact.primary" placeholder="Primary" 
+        required [ngClass]="{'invalid-textbox': contactForm.submitted && !location.valid}"/>
+        <div *ngIf="contactForm.submitted && !primary.valid">
+          <label class="validation-message">Primary is required.</label>
+        </div>
         <div class="d-flex justify-content-between">
-          <input type="button" value="Update" *ngIf="contact._id" (click)="updateContact(contact)">
-          <input type="button" value="Delete" *ngIf="contact._id" (click)="deleteContact(contact._id)">
+          <input type="submit" value="Update"/>
+          <input type="button" value="Delete" (click)="deleteContact(contact._id)"/>
         </div>
       </form>
+    </div>
 </div>
