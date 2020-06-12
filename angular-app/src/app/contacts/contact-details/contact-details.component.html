@@ -19,10 +19,10 @@
           <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
         </div>
         <input type="text"name="location" #location="ngModel" [(ngModel)]="contact.location" placeholder="Location" 
-        required [maxlength]="100" [ngClass]="{'invalid-textbox': newContactForm.submitted && location.errors}"/>
+        required [maxlength]="60" [ngClass]="{'invalid-textbox': newContactForm.submitted && location.errors}"/>
         <div *ngIf="newContactForm.submitted && location.errors">
           <label *ngIf="location.errors.required" class="validation-message">Location is required.</label>
-          <label *ngIf="location.errors.maxlength" class="validation-message">Please use less than 100 characters.</label>
+          <label *ngIf="location.errors.maxlength" class="validation-message">Please use less than 60 characters.</label>
         </div>
         <input type="text" name="primary" #primary="ngModel" [(ngModel)]="contact.primary" placeholder="Primary" 
         required [pattern]="primaryRegex" [ngClass]="{'invalid-textbox': newContactForm.submitted && primary.errors}"/>
@@ -48,10 +48,10 @@
           <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
         </div>
         <input type="text"name="location" #location="ngModel" [(ngModel)]="contact.location" placeholder="Location" 
-        required [maxlength]="100" [ngClass]="{'invalid-textbox': contactForm.submitted && location.errors}"/>
+        required [maxlength]="60" [ngClass]="{'invalid-textbox': contactForm.submitted && location.errors}"/>
         <div *ngIf="contactForm.submitted && location.errors">
           <label *ngIf="location.errors.required" class="validation-message">Location is required.</label>
-          <label *ngIf="location.errors.maxlength" class="validation-message">Please use less than 100 characters.</label>
+          <label *ngIf="location.errors.maxlength" class="validation-message">Please use less than 60 characters.</label>
         </div>
         <input type="text" name="primary" #primary="ngModel" [(ngModel)]="contact.primary" placeholder="Primary" 
         required [ngClass]="{'invalid-textbox': contactForm.submitted && primary.errors}"/>
