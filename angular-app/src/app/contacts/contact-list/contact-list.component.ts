@@ -1,3 +1,4 @@
+/* Imports */
 import { Component, OnInit } from '@angular/core';
 import { Contact } from "../../shared/models/contact.model";
 import { ContactService } from "../../shared/services/contact.service";
@@ -16,9 +17,7 @@ export class ContactListComponent implements OnInit {
 
   constructor(public contactService: ContactService, public userService: UserService, private router: Router) { }
 
-  /**
-   * Populates the contacts array with data from API call to backend.
-   */
+  /** Populates the contacts array with data from API call to backend. */
   ngOnInit(): void {
     this.userService.setUserDetails();
     this.contactService
@@ -43,9 +42,7 @@ export class ContactListComponent implements OnInit {
 
   
 
-  /**
-   * Creates a new contact and marks it as selected
-   */
+  /** Creates a new contact and marks it as selected */
   createNewContact() {
     let contact: Contact = {
       name: '',
@@ -70,18 +67,14 @@ export class ContactListComponent implements OnInit {
     return this.contactService.contacts;
   }
 
-  /**
-   * Adds a contact to the contact array.
-   */
+  /** Adds a contact to the contact array. */
   addContact = (contact: Contact) => {
     this.contactService.contacts.push(contact);
     this.contactService.selectContact(contact);
     return this.contactService.contacts;
   }
 
-  /**
-   * Replaces a contact in the array with its updated version.
-   */
+  /** Replaces a contact in the array with its updated version. */
   updateContact = (contact: Contact) => {
     let index = this.getIndexOfContact(contact._id);
     if(index !== -1) {
@@ -91,9 +84,7 @@ export class ContactListComponent implements OnInit {
     return this.contactService.contacts;
   }
   
-  /**
-   * Checks wether the contact is selected.
-   */
+  /** Checks wether the contact is selected. */
   isSelected(contact: Contact) {
     if (!this.contactService.selectedContact) {
       return false;
@@ -103,6 +94,7 @@ export class ContactListComponent implements OnInit {
     }   
   }
 
+  /** Deletes web token and redirects to '/login'. */
   logout(){
     this.userService.deleteToken();
     this.router.navigateByUrl('/login');

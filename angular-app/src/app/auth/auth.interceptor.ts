@@ -3,7 +3,6 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/co
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
 import { UserService } from '../shared/services/user.service';
 
 @Injectable()
