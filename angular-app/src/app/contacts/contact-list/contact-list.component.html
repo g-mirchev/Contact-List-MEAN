@@ -6,9 +6,9 @@
     <div class="wrapper">
         <div class="d-flex justify-content-between">
             <div class="row flex-grow-*">
-                <div class="contactscard" *ngFor="let contact of contacts"
-                    (click)="selectContact(contact)"
-                    [class.active]="contact===selectedContact">
+                <div class="contactscard" *ngFor="let contact of contactService.contacts"
+                    (click)="contactService.selectContact(contact)"
+                    [class.active]="contact===contactService.selectedContact">
                     <div class="cardheader">
                         <div class="cardtitle">{{contact.name}}</div>
                         <div class="cardsubtitle">{{contact.email}}</div>
@@ -27,7 +27,7 @@
             </div> 
             <div clas="">
                 <app-contact-details 
-                    [contact]="selectedContact"
+                    [contact]="contactService.selectedContact"
                     [createHandler]="addContact"
                     [updateHandler]="updateContact"
                     [deleteHandler]="deleteContact">

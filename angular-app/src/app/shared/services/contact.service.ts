@@ -8,6 +8,8 @@ export class ContactService {
 
   //private readonly contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
   private readonly contactsUrl = "http://localhost:8080/api/contacts";
+  contacts: Contact[];
+  selectedContact: Contact;
 
   constructor(private http: HttpClient) {}
 
@@ -60,5 +62,14 @@ export class ContactService {
     let errorMessage = (error.message) ? error.message :
     error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errorMessage);
+  }
+
+  /**
+   * Sets the selected contact.
+   * 
+   * @param contact   to be saved as selectedContact
+   */
+  selectContact(contact: Contact) {
+    this.selectedContact = contact;
   }
 }

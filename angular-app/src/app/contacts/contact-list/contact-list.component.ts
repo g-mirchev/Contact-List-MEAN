@@ -12,10 +12,9 @@ import { ContactDetailsComponent } from '../contact-details/contact-details.comp
 })
 export class ContactListComponent implements OnInit {
 
-  contacts: Contact[];
-  selectedContact: Contact;
+  
 
-  constructor(private contactService: ContactService, private userService: UserService) { }
+  constructor(public contactService: ContactService, private userService: UserService) { }
 
   /**
    * Populates the contacts array with data from API call to backend.
@@ -24,7 +23,7 @@ export class ContactListComponent implements OnInit {
     this.contactService
       .getContacts()
       .then((contacts: Contact[]) => {
-        this.contacts = contacts.map((contact) => {
+        this.contactService.contacts = contacts.map((contact) => {
           return contact;
         });
       });
@@ -36,19 +35,12 @@ export class ContactListComponent implements OnInit {
    * @param contactID   used to find the contact
    */
   private getIndexOfContact = (contactId: String) => {
-    return this.contacts.findIndex((contact) => {
+    return this.contactService.contacts.findIndex((contact) => {
       return contact._id === contactId;
     });
   }
 
-  /**
-   * Sets the selected contact.
-   * 
-   * @param contact   to be saved as selectedContact
-   */
-  selectContact(contact: Contact) {
-    this.selectedContact = contact;
-  }
+  
 
   /**
    * Creates a new contact and marks it as selected
@@ -60,7 +52,7 @@ export class ContactListComponent implements OnInit {
       location: '',
       primary: '',
     };
-    this.selectContact(contact);
+    this.contactService.selectContact(contact);
   }
 
   /**
@@ -71,24 +63,24 @@ export class ContactListComponent implements OnInit {
   deleteContact = (contactId: String) => {
     let index = this.getIndexOfContact(contactId);
     if (index !== -1) {
-      this.contacts.splice(index, 1);
-      this.selectContact(null);
+      this.contactService.contacts.splice(index, 1);
+      this.contactService.selectContact(null);
     }
-    return this.contacts;
+    return this.contactService.contacts;
   }
 
   addContact = (contact: Contact) => {
-    this.contacts.push(contact);
-    this.selectContact(contact);
-    return this.contacts;
+    this.contactService.contacts.push(contact);
+    this.contactService.selectContact(contact);
+    return this.contactService.contacts;
   }
 
   updateContact = (contact: Contact) => {
     let index = this.getIndexOfContact(contact._id);
     if(index !== -1) {
-      this.contacts[index] = contact;
-      this.selectContact(contact);
+      this.contactService.contacts[index] = contact;
+      this.contactService.selectContact(contact);
     }
-    return this.contacts;
+    return this.contactService.contacts;
   }
 }

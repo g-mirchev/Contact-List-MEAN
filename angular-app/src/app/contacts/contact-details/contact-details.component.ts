@@ -18,7 +18,7 @@ export class ContactDetailsComponent {
   @Input()
   deleteHandler: Function;
 
-  constructor(private contactService: ContactService) { }
+  constructor(public contactService: ContactService) { }
 
   createContact(contact: Contact) {
     this.contactService.createContact(contact).then((newContact: Contact) => {
