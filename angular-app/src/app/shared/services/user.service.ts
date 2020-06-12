@@ -12,8 +12,8 @@ export class UserService {
   };
 
   currentUserDetails = {
-    name: '',
-    email: '',
+    name: String,
+    email: String,
   }
 
   // Header for requests that don't require authorization.
