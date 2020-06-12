@@ -60,9 +60,7 @@ export class ContactService {
                .catch(this.handleError);
   }
 
-  /**
-   * Handles error and logs it to console.
-   */
+  /** Handles error and logs it to console. */
   private handleError(error: any) {
     let errorMessage = (error.message) ? error.message :
     error.status ? `${error.status} - ${error.statusText}` : 'Server error';
