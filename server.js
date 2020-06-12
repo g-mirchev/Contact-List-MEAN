@@ -7,12 +7,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./express-app/routes/routes');
 const passport = require('passport')
+let distDir = __dirname + "/dist";
 
 /** Create new Express application.*/
 const app = express();
 
 /** Middleware */
 app.use(bodyParser.json());
+app.use(express.static(distDir));
 app.use(passport.initialize());
 // Add cors headers for debugging.
 app.use((req, res, next) => {
