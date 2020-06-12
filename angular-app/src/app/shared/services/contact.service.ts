@@ -65,11 +65,11 @@ export class ContactService {
   }
 
   /**
-   * Sets the selected contact.
+   * Creates a copy of a contact to be selected.
    * 
-   * @param contact   to be saved as selectedContact
+   * @param contact   gets set as selected contact
    */
   selectContact(contact: Contact) {
-    this.selectedContact = contact;
+    this.selectedContact = JSON.parse(JSON.stringify(contact));
   }
 }
