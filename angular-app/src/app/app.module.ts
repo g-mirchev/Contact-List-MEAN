@@ -14,6 +14,7 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/services/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { ContactService } from './shared/services/contact.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
       multi: true
     },
     AuthGuard,
-    UserService
+    UserService,
+    ContactService,
   ],
   bootstrap: [AppComponent]
 })
