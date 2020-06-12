@@ -11,6 +11,11 @@ export class UserService {
     password: ''
   };
 
+  currentUserDetails: {
+    name: '',
+    email: '',
+  }
+
   // Header for requests that don't require authorization.
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth' : 'True' }) };
 
@@ -85,15 +90,13 @@ export class UserService {
   }
 
   /**
-   * Returns the user ID from the jwt payload.
+   * Returns the user name and email from the token.
    */
-  getUserId() {
+  setUserDetails() {
     let userPayload = this.getUserPayload();
     if(userPayload) {
-      return userPayload._id;
-    }
-    else{
-      return null;
+      this.currentUserDetails.name = userPayload.name;
+      this.currentUserDetails.email = userPayload.email;
     }
   }
 }
