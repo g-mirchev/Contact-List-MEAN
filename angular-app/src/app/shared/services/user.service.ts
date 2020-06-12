@@ -5,18 +5,21 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class UserService {
+
+  /** Used for the registration form */
   selectedUser: User = {
     name: '',
     email: '',
     password: ''
   };
 
+  /** A copy of the current user details. */
   currentUserDetails = {
     name: String,
     email: String,
   }
 
-  // Header for requests that don't require authorization.
+  /** Header for requests that don't require authorization. */
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth' : 'True' }) };
 
   constructor(private http: HttpClient) {}
@@ -39,23 +42,17 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl + '/login', credentials, this.noAuthHeader);
   }
 
-  /**
-   * Saves token to client local storage.
-   */
+  /** Saves token to client local storage. */
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
 
-  /**
-   * Returns token from client local storage.
-   */
+  /** Returns token from client local storage. */
   getToken() {
     return localStorage.getItem('token');
   }
 
-  /**
-   * Deletes token from local storage.
-   */
+  /** Deletes token from local storage. */
   deleteToken() {
     localStorage.removeItem('token');
   }
@@ -75,10 +72,7 @@ export class UserService {
     }
   }
 
-  /**
-   * Checks if there is a present token and that
-   * it hasn't expired.
-   */
+  /** Checks if there is a present token and that it hasn't expired. */
   isLoggedIn() {
     let userPayload = this.getUserPayload();
     if (userPayload) {
@@ -89,9 +83,7 @@ export class UserService {
     }
   }
 
-  /**
-   * Returns the user name and email from the token.
-   */
+  /** Returns the user name and email from the token. */
   setUserDetails() {
     let userPayload = this.getUserPayload();
     if(userPayload) {

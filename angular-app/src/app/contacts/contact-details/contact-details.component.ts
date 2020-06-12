@@ -25,24 +25,47 @@ export class ContactDetailsComponent {
 
   constructor(public contactService: ContactService) { }
 
+  /** 
+   * Issues an api call from contactService to save the new contact,
+   * on success saves the new contact in contacts array.
+   * 
+   * @param contact   the contact to create
+   */
   createContact(contact: Contact) {
     this.contactService.createContact(this.trimContactDetails(contact)).then((newContact: Contact) => {
       this.createHandler(newContact);
     });
   }
 
+  /**
+   * Issues an api call from contactService to save changes to current contact,
+   * on sucess saves the changes to contacts arrray.
+   * 
+   * @param contact   the contact to update as the new one
+   */
   updateContact(contact: Contact): void {
     this.contactService.updateContact(this.trimContactDetails(contact)).then((updatedContact: Contact) => {
       this.updateHandler(updatedContact);
     });
   }
 
+  /**
+   * Issues an api call from contactService to delete the current contact from the database,
+   * on sucess deletes the contact from contacts array.
+   * 
+   * @param contactId   the contact will be found and deleted by this parameter
+   */
   deleteContact(contactId: String): void {
     this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
       this.deleteHandler(deletedContactId);
     });
   }
 
+  /**
+   * Trims excess whitespace from contact's properties.
+   * 
+   * @param contact   contact object to trim
+   */
   trimContactDetails(contact: Contact) {
     contact.name = contact.name.trim();
     contact.email = contact.email.trim();

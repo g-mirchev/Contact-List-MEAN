@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/services/user.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,20 +9,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  // Regular expression for email validation.
+  /** Regular expression for email validation. */
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSuccessMessage: boolean;
-  // String of error messages.
+  /** String of error messages. */
   serverErrorMessages: string;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   /**
-   * Calls postUser from userService register the current
-   * user object to MongoDB.
+   * Calls postUser from userService register the current user object to MongoDB.
+   * On success redirects to /login.
+   * Upon error populates the serverErrorMessages string.
    * 
    * @param form    contains the information for current user
    */
@@ -31,6 +33,7 @@ export class SignUpComponent implements OnInit {
         this.showSuccessMessage = true;
         setTimeout(() => this.showSuccessMessage = false, 6000);
         this.resetForm(form);
+        this.router.navigateByUrl('/login');
       },
       err => {
         if (err.status === 422) {

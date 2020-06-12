@@ -1,3 +1,4 @@
+/** Ecport user model as an object */
 export class User {
     name: string;
     email: string;

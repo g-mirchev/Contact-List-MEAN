@@ -1,20 +1,22 @@
+/** Imports */
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Contact } from '../models/contact.model';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ContactService {
-
-  //private readonly contactsUrl = "https://contact-list-gm.herokuapp.com/api/contacts";
-  private readonly contactsUrl = "http://localhost:8080/api/contacts";
+ 
+  /** Array of contacts for front end storage */
   contacts: Contact[];
+  /** A copy of the selected contact */
   selectedContact: Contact;
 
   constructor(private http: HttpClient) {}
 
   /**
-   * GET  ("/api/contacts")
+   * Sends HTTP GET request to backend.
+   * Recieves array of contacts if successful.
    */
   getContacts(): Promise<void | Contact[]> {
     return this.http.get(environment.apiBaseUrl + '/contacts')
@@ -24,7 +26,8 @@ export class ContactService {
   }
 
   /**
-   * POST   ("/api/contacts")
+   * Sends HTTP POST request to save a new contact to db.
+   * Recieves the saved contact as responce if successful.
    * 
    * @param newContact Contact object to be sent
    */
@@ -36,7 +39,8 @@ export class ContactService {
   }
 
    /**
-   * PUT  ("/api/contacts/:id")
+   * Sends HTTP PUT request to update existing contact in db.
+   * Recieves the updated contact if successful.
    */
   updateContact(putContact: Contact): Promise<void | Contact> {
     return this.http.put(environment.apiBaseUrl + '/contacts/' + putContact._id, putContact)
@@ -46,7 +50,8 @@ export class ContactService {
   }
 
    /**
-   * DELETE  ("/api/contacts/:id")
+   * Sends HTTP DELETE request to delete existing contact in db.
+   * Recieves the deleted contact's ID if successful.
    */
   deleteContact(deletedContactId: String): Promise<void | String> {
     return this.http.delete(environment.apiBaseUrl + '/contacts/' + deletedContactId)
@@ -56,7 +61,7 @@ export class ContactService {
   }
 
   /**
-   * Custom error handling
+   * Handles error and logs it to console.
    */
   private handleError(error: any) {
     let errorMessage = (error.message) ? error.message :
@@ -67,7 +72,7 @@ export class ContactService {
   /**
    * Creates a copy of a contact to be selected.
    * 
-   * @param contact   gets set as selected contact
+   * @param contact   contact to be copied as selectedContact
    */
   selectContact(contact: Contact) {
     this.selectedContact = JSON.parse(JSON.stringify(contact));

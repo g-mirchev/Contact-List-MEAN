@@ -3,7 +3,7 @@
         <h1>Contacts</h1>
         <button class="newbutton" (click)="createNewContact()">+New</button>
         <div class="usersection">
-            <div class="userinfo">
+            <div>
                 <div >User: {{userService.currentUserDetails.name}}</div>
                 <div>{{userService.currentUserDetails.email}}</div>  
             </div>
@@ -12,6 +12,7 @@
     </div>
     <div class="contacts">
         <div class="d-flex justify-content-between">
+            <!-- List of contact cards -->
             <div class="row flex-grow-*">
                 <div class="contactscard" *ngFor="let contact of contactService.contacts"
                     (click)="contactService.selectContact(contact)"
@@ -32,6 +33,7 @@
                     </div>
                 </div>
             </div> 
+            <!-- Form component and input handlers  -->
             <div>
                 <app-contact-details 
                     [contact]="contactService.selectedContact"
