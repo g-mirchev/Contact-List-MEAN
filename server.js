@@ -16,7 +16,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(distDir));
 app.use(passport.initialize());
-// Add cors headers for debugging.
+
+/** CORS headers for debugging. */
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
