@@ -69,12 +69,18 @@ export class ContactListComponent implements OnInit {
     return this.contactService.contacts;
   }
 
+  /**
+   * Adds a contact to the contact array.
+   */
   addContact = (contact: Contact) => {
     this.contactService.contacts.push(contact);
     this.contactService.selectContact(contact);
     return this.contactService.contacts;
   }
 
+  /**
+   * Replaces a contact in the array with its updated version.
+   */
   updateContact = (contact: Contact) => {
     let index = this.getIndexOfContact(contact._id);
     if(index !== -1) {
@@ -83,4 +89,17 @@ export class ContactListComponent implements OnInit {
     }
     return this.contactService.contacts;
   }
+  
+  /**
+   * Checks wether the contact is selected.
+   */
+  isSelected(contact: Contact) {
+    if (!this.contactService.selectedContact) {
+      return false;
+    }
+    else {
+      return contact._id === this.contactService.selectedContact._id;
+    }   
+  }
+  
 }

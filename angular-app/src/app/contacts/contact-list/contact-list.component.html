@@ -8,7 +8,7 @@
             <div class="row flex-grow-*">
                 <div class="contactscard" *ngFor="let contact of contactService.contacts"
                     (click)="contactService.selectContact(contact)"
-                    [class.active]="contact===contactService.selectedContact">
+                    [class.active]="isSelected(contact)">
                     <div class="cardheader">
                         <div class="cardtitle">{{contact.name}}</div>
                         <div class="cardsubtitle">{{contact.email}}</div>
