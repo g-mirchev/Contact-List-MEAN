@@ -1,7 +1,6 @@
 /** Imports */
 const ObjectId = require('mongoose').Types.ObjectId;
 const { Contact } = require('../models/contact');
-
 const errorHandler = require('../shared/errorHandler');
 
 /** Export CRUD functions for contact to be used by router. */

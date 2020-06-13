@@ -1,7 +1,6 @@
 /** Imports */
 const passport = require('passport');
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const { User } = require('../models/user');
 const errorHandler = require('../shared/errorHandler')
 const _ = require('lodash');
 
