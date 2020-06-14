@@ -1,27 +1,43 @@
 # ContactlistMean
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+This project was created using MongoDB, Express, Angular JS v9 and Node.js v12 (MEAN).
+
+## Prerequisites
+
+To run this project on local server you will need a MongoDB account as well as [npm](https://docs.npmjs.com/) and [AngularCLI] (https://angular.io/cli) installed on your machine.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In the root directory create .env file and set the following properties:
 
-## Code scaffolding
+```
+MONGODB_URI=<Link to your MongoDB database>
+JWT_SECRET=<Any string you like>
+JWT_EXP-60m
+PORT=8080
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Note that if you select a different port you will also have to change the `apiBaseUrl` property in `angular-app/src/environments/environment.ts` to match the port you selected.
 
-## Build
+In the root folder use node package manager to install all dependencies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+npm install
+```
 
-## Running unit tests
+To then start the express app use:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+node server.js
+```
 
-## Running end-to-end tests
+In a seperate terminal start the angular app using:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+ng serve
+```
 
-## Further help
+The app should start at: `http://localhost:4200/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
