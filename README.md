@@ -4,7 +4,10 @@ This project was created using MongoDB, Express, Angular JS v9 and Node.js v12 (
 
 When registering a new user, you do not need to use a real e-mail, as long as it looks like one. eg: `someone@email.com`
 
-Or you can log in with the example account
+Or you can log in with the example account on the live app 
+
+https://github.com/g-mirchev/Contact-List-MEAN
+
 ```
 email:      user@demo.com
 password:   12345678
