@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --configuration=production",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --configuration=production --output-path dist"
+    "postinstall": "ng build --aot --configuration=production --output-path dist"
   },
   "private": true,
   "dependencies": {

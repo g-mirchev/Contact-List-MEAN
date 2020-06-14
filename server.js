@@ -42,6 +42,10 @@ app.use((err, req, res, next) => {
     }
 });
 
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+})
+
 /** Launch the server. */
 const server = app.listen(process.env.PORT, () => {
     const port = server.address().port;
