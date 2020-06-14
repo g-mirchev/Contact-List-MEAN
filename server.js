@@ -6,7 +6,9 @@ require('./express-app/config/passport');
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./express-app/routes/routes');
-const passport = require('passport')
+const passport = require('passport');
+const path = require('path');
+
 let distDir = __dirname + "/dist";
 
 /** Create new Express application.*/
@@ -44,7 +46,7 @@ app.use((err, req, res, next) => {
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
-})
+});
 
 /** Launch the server. */
 const server = app.listen(process.env.PORT, () => {
