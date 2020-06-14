@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 /** Acts as a parent component for sign-in and sign-up components. */
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
+  /** Redirects to contactlist component if user is already logged in. */
   ngOnInit(): void {
+    if(this.userService.isLoggedIn()) {
+      this.router.navigateByUrl('/contacts');
+    }
   }
 
 }
