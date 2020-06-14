@@ -4,11 +4,11 @@ This project was created using MongoDB, Express, Angular JS v9 and Node.js v12 (
 
 ## Prerequisites
 
-To run this project on local server you will need a MongoDB account as well as [npm](https://docs.npmjs.com/) and [AngularCLI] (https://angular.io/cli) installed on your machine.
+To run this project on local server you will need a MongoDB account as well as [npm](https://docs.npmjs.com/) and [Angular CLI](https://angular.io/cli) installed on your machine.
 
 ## Development server
 
-In the root directory create .env file and set the following properties:
+In the root directory create `.env` file and set the following properties:
 
 ```
 MONGODB_URI=<Link to your MongoDB database>
