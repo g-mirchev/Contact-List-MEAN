@@ -6,7 +6,7 @@ When registering a new user, you do not need to use a real e-mail, as long as it
 
 Or you can log in with the example account on the live app 
 
-https://github.com/g-mirchev/Contact-List-MEAN
+https://contact-list-gm.herokuapp.com
 
 ```
 email:      user@demo.com
