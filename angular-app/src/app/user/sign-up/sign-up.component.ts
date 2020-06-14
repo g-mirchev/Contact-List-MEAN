@@ -34,6 +34,7 @@ export class SignUpComponent implements OnInit {
         this.showSuccessMessage = true;
         setTimeout(() => this.showSuccessMessage = false, 6000);
         this.resetForm(form);
+        alert('Registration success!');
         this.router.navigateByUrl('/login');
       },
       err => {
