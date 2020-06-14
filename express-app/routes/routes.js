@@ -17,9 +17,9 @@ router.put("/contacts/:id", jwtHelper.verifyJwt, contactController.update);
 router.delete("/contacts/:id", jwtHelper.verifyJwt, contactController.delete);
 
 /** Redirects to Angular app if no API routes are hit. */
-router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
+// router.use(function(req, res) {
+//     res.sendFile(path.join(__dirname, '/dist/index.html'));
+// });
 
 /** Exports */
 module.exports = router;
