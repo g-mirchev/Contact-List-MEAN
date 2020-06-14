@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 app.use("/api", routes);
 
-/** Error Handlers*/
+/** Handles validation errors. */
 app.use((err, req, res, next) => {
     if(err.name ==='ValidationError') {
         let vallidationErrors = [];
@@ -38,12 +38,14 @@ app.use((err, req, res, next) => {
     }
 });
 
+/** Handles authorization error. */
 app.use((err, req, res, next) => {
     if(err.name === 'UnauthorisedError') {
         res.status(401).json({"message" : err.name + ": " + err.message});
     }
 });
 
+/** Returns the view if app stumbles on an unregistered endpoint. */
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
