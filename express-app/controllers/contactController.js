@@ -35,26 +35,6 @@ module.exports = {
         });
     },
 
-    /** 
-     * Reads a contact with specific ID 
-     * (This function is not used by the API yet so it's commented
-     * for security reasons. Uncomment if needed.).
-     */
-    /**
-    getById: function(req, res) {
-        if(!ObjectId.isValid(req.params.id)) {
-            handleError(res, "Invalid ID", `No contact with given ID: ${req.params.id}`, 400);
-        } else {
-            Contact.findById(req.params.id, (err, doc) => {
-                if(!err) {
-                    res.status(200).json(doc);
-                } else {
-                    errorHandler.handleError(res, err.message, "Failed to get contact");
-                }
-            });
-        }
-    },*/
-
     /** Updates details for contact with specific ID. */
     update: function(req, res) {
         if(!ObjectId.isValid(req.params.id)) {

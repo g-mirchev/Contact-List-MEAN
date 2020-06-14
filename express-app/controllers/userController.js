@@ -51,20 +51,4 @@ module.exports = {
         })(req, res);
     },
 
-    /**
-     * Returns current user information.
-     * (Unused. Uncomment if neeeded.)
-     */
-    /**
-    userProfile: function(req, res, next) {
-        User.findOne({ _id: req._id },
-            (err, user) => {
-                if(!user) {
-                    res.status(404).json({ status: false, message: 'User not found.'});
-                }
-                else {
-                    res.status(200).json({ status: true, user : _.pick(user, ['name', 'email']) });
-                }
-            });
-    }*/
 }
