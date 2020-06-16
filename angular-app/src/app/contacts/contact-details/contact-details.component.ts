@@ -77,11 +77,6 @@ export class ContactDetailsComponent {
     );
   }
 
-  /**
-   * Trims excess whitespace from contact's properties.
-   * 
-   * @param contact   contact object to trim
-   */
   trimContactDetails(contact: Contact) {
     contact.name = contact.name.trim();
     contact.email = contact.email.trim();

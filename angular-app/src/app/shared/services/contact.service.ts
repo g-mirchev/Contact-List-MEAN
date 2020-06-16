@@ -60,13 +60,13 @@ export class ContactService {
 
   sortBy(option: String) {
     switch (option) {
-      case "name":
+      case 'name':
         this.contacts.sort((a, b) => (a.name, b.name) ? 1: -1);
         break;
-      case "email":
+      case 'email':
         this.contacts.sort((a, b) => (a.email, b.email) ? 1: -1);
         break;
-      case "location":
+      case 'location':
         this.contacts.sort((a, b) => (a.location, b.location) ? 1: -1);
         break;
     }
