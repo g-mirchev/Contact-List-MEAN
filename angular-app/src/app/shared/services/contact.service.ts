@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Contact } from '../models/contact.model';
 import { environment } from '../../../environments/environment';
+import { EmailValidator } from '@angular/forms';
 
 @Injectable()
 export class ContactService {
@@ -55,5 +56,19 @@ export class ContactService {
    */
   selectContact(contact: Contact) {
     this.selectedContact = JSON.parse(JSON.stringify(contact));
+  }
+
+  sortBy(option: String) {
+    switch (option) {
+      case "name":
+        this.contacts.sort((a, b) => (a.name, b.name) ? 1: -1);
+        break;
+      case "email":
+        this.contacts.sort((a, b) => (a.email, b.email) ? 1: -1);
+        break;
+      case "location":
+        this.contacts.sort((a, b) => (a.location, b.location) ? 1: -1);
+        break;
+    }
   }
 }
