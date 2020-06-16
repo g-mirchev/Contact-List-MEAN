@@ -2,6 +2,8 @@
 
 This project was created using MongoDB, Express, Angular JS v9 and Node.js v12 (MEAN).
 
+NOTE: I'm still working on this project after the deadline. If you would like to see any of the changes I make, check out my second branh `FrontendReworkAndExtras`. If you would like to see those changes merged and deployed live, let me know :).
+
 When registering a new user, you do not need to use a real e-mail, as long as it looks like one. eg: `someone@email.com`
 
 Or you can log in with the example account on the live app 
