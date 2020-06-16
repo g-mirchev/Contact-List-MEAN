@@ -33,6 +33,9 @@
         </div>
         <input type="submit" value="Create"/>
       </form>
+      <div class="created" *ngIf="showCreatedMessage">
+        Contact Saved
+      </div>
     </div>
     <!-- Form for updating or deleting contact. -->
     <div *ngIf="contact._id">
@@ -64,13 +67,10 @@
           <input type="submit" value="Update"/>
           <input type="button" value="Delete" (click)="deleteContact(contact._id)"/>
         </div>
-        <div class="created" *ngIf="showCreatedMessage">
-          Contact Saved
-        </div>
-        <div class="updated" *ngIf="showUpdatedMessage">
-          Contact Updated
-        </div>
       </form>
-    </div>
+      <div class="updated" *ngIf="showUpdatedMessage">
+        Contact Updated
+      </div>
+    </div>  
   </div>
 </div>
