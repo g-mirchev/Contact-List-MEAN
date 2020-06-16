@@ -23,6 +23,8 @@ export class ContactDetailsComponent {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /** Regex for phone validation. */
   primaryRegex = /^\+?\s*([0-9][\s-]*){7,15}$/;
+  showCreatedMessage: boolean;
+  showUpdatedMessage: boolean;
 
   constructor(public contactService: ContactService) { }
 
@@ -33,9 +35,14 @@ export class ContactDetailsComponent {
    * @param contact   the contact to create
    */
   createContact(contact: Contact) {
-    this.contactService.createContact(this.trimContactDetails(contact)).then((newContact: Contact) => {
-      this.createHandler(newContact);
-    });
+    this.contactService.createContact(this.trimContactDetails(contact)).subscribe(
+      res => {
+        let newContact = res as Contact;
+        this.createHandler(newContact)
+        this.showCreatedMessage = true;
+        setTimeout(() => this.showCreatedMessage = false, 3000);
+      }
+    );
   }
 
   /**
@@ -45,9 +52,14 @@ export class ContactDetailsComponent {
    * @param contact   the contact to update as the new one
    */
   updateContact(contact: Contact): void {
-    this.contactService.updateContact(this.trimContactDetails(contact)).then((updatedContact: Contact) => {
-      this.updateHandler(updatedContact);
-    });
+    this.contactService.updateContact(this.trimContactDetails(contact)).subscribe(
+      res => {
+        let updatedContact = res as Contact;
+        this.updateHandler(updatedContact);
+        this.showUpdatedMessage = true;
+        setTimeout(() => this.showUpdatedMessage = false, 3000);
+      }
+    );
   }
 
   /**
@@ -57,9 +69,12 @@ export class ContactDetailsComponent {
    * @param contactId   the contact will be found and deleted by this parameter
    */
   deleteContact(contactId: String): void {
-    this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
-      this.deleteHandler(deletedContactId);
-    });
+    this.contactService.deleteContact(contactId).subscribe(
+      res => {
+        let deletedContactId = res as String;
+        this.deleteHandler(deletedContactId);
+      }
+    );
   }
 
   /**

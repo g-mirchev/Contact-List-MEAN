@@ -16,10 +16,9 @@ export class SignInComponent implements OnInit {
     email: '',
     password: ''
   };
+  
   /** Regular expression for email validation. */
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  showSuccessMessage: boolean;
-  /** String of error messages. */ 
   serverErrorMessages: string;
 
   constructor(private userService: UserService, private router: Router) { }

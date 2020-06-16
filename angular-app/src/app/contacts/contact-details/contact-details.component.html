@@ -64,6 +64,12 @@
           <input type="submit" value="Update"/>
           <input type="button" value="Delete" (click)="deleteContact(contact._id)"/>
         </div>
+        <div class="created" *ngIf="showCreatedMessage">
+          Contact Saved
+        </div>
+        <div class="updated" *ngIf="showUpdatedMessage">
+          Contact Updated
+        </div>
       </form>
     </div>
   </div>

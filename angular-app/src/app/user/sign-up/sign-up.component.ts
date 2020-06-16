@@ -12,14 +12,12 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
   /** Regular expression for email validation. */
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  showSuccessMessage: boolean;
   /** String of error messages. */
   serverErrorMessages: string;
 
   constructor(public userService: UserService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Calls postUser from userService register the current user object to MongoDB.
@@ -31,8 +29,6 @@ export class SignUpComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.userService.postUser(form.value).subscribe(
       res => {
-        this.showSuccessMessage = true;
-        setTimeout(() => this.showSuccessMessage = false, 6000);
         this.resetForm(form);
         alert('Registration success!');
         this.router.navigateByUrl('/login');

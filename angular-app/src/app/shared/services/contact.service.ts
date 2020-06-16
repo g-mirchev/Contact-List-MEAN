@@ -18,11 +18,8 @@ export class ContactService {
    * Sends HTTP GET request to backend.
    * Recieves array of contacts if successful.
    */
-  getContacts(): Promise<void | Contact[]> {
-    return this.http.get(environment.apiBaseUrl + '/contacts')
-               .toPromise()
-               .then(res => res as Contact[])
-               .catch(this.handleError);
+  getContacts() {
+    return this.http.get(environment.apiBaseUrl + '/contacts');
   }
 
   /**
@@ -31,42 +28,26 @@ export class ContactService {
    * 
    * @param newContact Contact object to be sent
    */
-  createContact(newContact: Contact): Promise<void | Contact> {
-    return this.http.post(environment.apiBaseUrl + '/contacts', newContact)
-               .toPromise()
-               .then(res => res as Contact)
-               .catch(this.handleError);
+  createContact(newContact: Contact) {
+    return this.http.post(environment.apiBaseUrl + '/contacts', newContact);
   }
 
    /**
    * Sends HTTP PUT request to update existing contact in db.
    * Recieves the updated contact if successful.
    */
-  updateContact(putContact: Contact): Promise<void | Contact> {
-    return this.http.put(environment.apiBaseUrl + '/contacts/' + putContact._id, putContact)
-               .toPromise()
-               .then(res => res as Contact)
-               .catch(this.handleError);
+  updateContact(putContact: Contact) {
+    return this.http.put(environment.apiBaseUrl + '/contacts/' + putContact._id, putContact);
   }
 
    /**
    * Sends HTTP DELETE request to delete existing contact in db.
    * Recieves the deleted contact's ID if successful.
    */
-  deleteContact(deletedContactId: String): Promise<void | String> {
-    return this.http.delete(environment.apiBaseUrl + '/contacts/' + deletedContactId)
-               .toPromise()
-               .then(res => res as String)
-               .catch(this.handleError);
+  deleteContact(deletedContactId: String) {
+    return this.http.delete(environment.apiBaseUrl + '/contacts/' + deletedContactId);
   }
-
-  /** Handles error and logs it to console. */
-  private handleError(error: any) {
-    let errorMessage = (error.message) ? error.message :
-    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errorMessage);
-  }
-
+  
   /**
    * Creates a copy of a contact to be selected.
    * 
