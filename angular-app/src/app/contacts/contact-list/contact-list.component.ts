@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ContactListComponent implements OnInit {
 
-  
+  recievedSearchText: string;
 
   constructor(public contactService: ContactService, public userService: UserService, private router: Router) { }
 
@@ -96,6 +96,11 @@ export class ContactListComponent implements OnInit {
   logout(){
     this.userService.deleteToken();
     this.router.navigateByUrl('/login');
+  }
+
+  /** Listens for emitted search text and saves changes. */
+  updateSearchText(text: string) {
+    this.recievedSearchText = text;
   }
 
 }
