@@ -14,7 +14,7 @@
         <div class="d-flex justify-content-between">
             <!-- List of contact cards -->
             <div class="row flex-grow-*">
-                <div class="contactscard" *ngFor="let contact of contactService.contacts"
+                <div class="contactscard" *ngFor="let contact of contactService.contacts | search: recievedSearchText"
                     (click)="contactService.selectContact(contact)"
                     [class.active]="isSelected(contact)">
                     <div class="cardheader">
