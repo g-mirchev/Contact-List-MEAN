@@ -19,16 +19,16 @@ export class SearchPipe implements PipeTransform {
     }
 
     return items.filter((item) => {
-      if(item.name.toLowerCase().includes(filter)){
+      if(item.name.toLowerCase().includes(filter.toLowerCase())){
         return true;
       }
-      else if(item.email.toLowerCase().includes(filter)){
+      else if(item.email.toLowerCase().includes(filter.toLowerCase())){
         return true;
       }
-      else if(item.location.toLowerCase().includes(filter)){
+      else if(item.location.toLowerCase().includes(filter.toLowerCase())){
         return true;
       }
-      else if(item.primary.toLowerCase().includes(filter)){
+      else if(item.primary.toLowerCase().includes(filter.toLowerCase())){
         return true;
       }
     });
