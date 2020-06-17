@@ -21,6 +21,7 @@ import { ContactService } from './shared/services/contact.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ContactFooterComponent } from './contacts/contact-footer/contact-footer.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactFooterComponent } from './contacts/contact-footer/contact-footer
     UserComponent,
     SignUpComponent,
     SignInComponent,
-    ContactFooterComponent
+    ContactFooterComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
