@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Contact } from '../models/contact.model';
 import { environment } from '../../../environments/environment';
-import { EmailValidator } from '@angular/forms';
 
 @Injectable()
 export class ContactService {
@@ -58,19 +57,24 @@ export class ContactService {
     this.selectedContact = JSON.parse(JSON.stringify(contact));
   }
 
+  /**
+   * Sorts the contacts by the given filer.
+   * 
+   * @param option   filter can be name, email or location
+   */
   sortBy(option: String) {
     this.contacts.sort((a, b) => {
       switch (option) {
         case 'name':
-            if(a.name > b.name) {
-              return 1;
-            }
-            else if(a.name < b.name) {
-              return -1;
-            }
-            else {
-              return 0;
-            }
+          if(a.name > b.name) {
+            return 1;
+          }
+          else if(a.name < b.name) {
+            return -1;
+          }
+          else {
+            return 0;
+          }
         case 'email':
           if(a.email > b.email) {
             return 1;
