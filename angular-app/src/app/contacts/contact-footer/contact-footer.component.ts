@@ -8,8 +8,11 @@ import { ContactService } from '../../shared/services/contact.service';
 export class ContactFooterComponent {
   @Output() sentSearchText = new EventEmitter();
 
+  searchText: string;
+
   constructor(public contactService: ContactService) { }
 
+  /** Outputs the search filter. */
   sendSearchText(text: string) {
     this.sentSearchText.emit(text);
   }

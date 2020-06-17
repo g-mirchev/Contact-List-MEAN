@@ -1,5 +1,5 @@
 <div class="contactsfooter">
-    <input type="text" placeholder="Search contacts" ng-model="searchText" (change)="sendSearchText($event)" />
+    <input type="text" placeholder="Search contacts" [(ngModel)]="searchText" (ngModelChange)="sendSearchText($event)" />
     <div class="dropdown">
         <div class="dropbtn">Sort</div>
         <div class="dropcontent">

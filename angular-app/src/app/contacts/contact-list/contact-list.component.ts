@@ -98,7 +98,7 @@ export class ContactListComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  /** Listens for emitted search text and saves changes. */
+  /** Listens for emitted search filter and saves changes. */
   updateSearchText(text: string) {
     this.recievedSearchText = text;
   }
