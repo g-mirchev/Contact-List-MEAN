@@ -59,16 +59,39 @@ export class ContactService {
   }
 
   sortBy(option: String) {
-    switch (option) {
-      case 'name':
-        this.contacts.sort((a, b) => (a.name, b.name) ? 1: -1);
-        break;
-      case 'email':
-        this.contacts.sort((a, b) => (a.email, b.email) ? 1: -1);
-        break;
-      case 'location':
-        this.contacts.sort((a, b) => (a.location, b.location) ? 1: -1);
-        break;
-    }
+    this.contacts.sort((a, b) => {
+      switch (option) {
+        case 'name':
+            if(a.name > b.name) {
+              return 1;
+            }
+            else if(a.name < b.name) {
+              return -1;
+            }
+            else {
+              return 0;
+            }
+        case 'email':
+          if(a.email > b.email) {
+            return 1;
+          }
+          else if(a.email < b.email) {
+            return -1;
+          }
+          else {
+            return 0;
+          }
+        case 'location':
+          if(a.location > b.location) {
+            return 1;
+          }
+          else if(a.location < b.location) {
+            return -1;
+          }
+          else {
+            return 0;
+          }
+      }
+    });
   }
 }
