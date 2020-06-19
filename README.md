@@ -51,6 +51,12 @@ ng serve
 
 The app should start at: `http://localhost:4200/`.
 
+## Frontend rework and extras.
+
+I rewrote `contact.service.ts`, `contact-list.component.ts` and `contact-details.component.ts` to match the logic of `user.service.ts` and thus standardising my code and allowing for better event handling. I added success messages which get displayed on creating and updating a new contact.
+
+Aditionally I added `contact-footer.component.ts` which contais a sort option and a search field which uses `search.pipe.ts` to dynamically search contacts that match the search text with any of their properties.
+
 ## From start to deployment in 2 weeks
 
 I started by doing some reasearch about the MEAN stack and how to best structure my project directory.
