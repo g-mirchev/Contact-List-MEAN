@@ -25,7 +25,7 @@ In the root directory create `.env` file and set the following properties:
 ```
 MONGODB_URI=<Link to your MongoDB database>
 JWT_SECRET=<Any string you like>
-JWT_EXP-60m
+JWT_EXP=60m
 PORT=8080
 ```
 
