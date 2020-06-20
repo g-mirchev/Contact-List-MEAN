@@ -86,7 +86,7 @@ input[type=text],input[type=password] {
     background-color: #ffffff;
     border-bottom: 2px solid #674dbe;
   }
-  &:placeholder{
+  &::placeholder{
     color: #cccccc;
   }
 }
