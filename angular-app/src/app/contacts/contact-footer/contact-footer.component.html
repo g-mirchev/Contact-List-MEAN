@@ -1,0 +1,11 @@
+<div class="contactsfooter">
+    <input type="text" placeholder="Search contacts" [(ngModel)]="searchText" (ngModelChange)="sendSearchText($event)" />
+    <div class="dropdown">
+        <div class="dropbtn">Sort</div>
+        <div class="dropcontent">
+            <div (click)="this.contactService.sortBy('name')">Name</div>
+            <div (click)="this.contactService.sortBy('email')">Email</div>
+            <div (click)="this.contactService.sortBy('location')">Location</div>
+        </div>
+    </div>
+</div>

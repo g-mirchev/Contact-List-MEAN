@@ -13,20 +13,18 @@ import { Router } from '@angular/router';
 })
 export class ContactListComponent implements OnInit {
 
-  
+  recievedSearchText: string;
 
   constructor(public contactService: ContactService, public userService: UserService, private router: Router) { }
 
   /** Populates the contacts array with data from API call to backend. */
   ngOnInit(): void {
     this.userService.setUserDetails();
-    this.contactService
-      .getContacts()
-      .then((contacts: Contact[]) => {
-        this.contactService.contacts = contacts.map((contact) => {
-          return contact;
-        });
-      });
+    this.contactService.getContacts().subscribe(
+      res => {
+        this.contactService.contacts = res as Contact[];
+      }
+    );
   }
 
   /**
@@ -98,6 +96,11 @@ export class ContactListComponent implements OnInit {
   logout(){
     this.userService.deleteToken();
     this.router.navigateByUrl('/login');
+  }
+
+  /** Listens for emitted search filter and saves changes. */
+  updateSearchText(text: string) {
+    this.recievedSearchText = text;
   }
 
 }

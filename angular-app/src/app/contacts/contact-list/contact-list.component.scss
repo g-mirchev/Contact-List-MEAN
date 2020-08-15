@@ -5,6 +5,7 @@
     height: 100vh;
 }
 .contacts {
+    margin-top: 65px;
     width: 100%;
     padding: 20px;
 }
@@ -20,10 +21,12 @@
     color: #faecd8;
     -webkit-box-shadow: 0px 8px 9px -9px black;
     box-shadow:         0px 8px 9px -9px black;
+    position: fixed;
+    top: 0px;
 }
 
 .newbutton {
-    background-color: #f1e970;
+    background-color: #f8f298;
     color: #4a4afb;
     font-size: 20px;
     font-weight: 600;
@@ -36,7 +39,7 @@
     -o-transition:      all 0.3s ease-in-out;
     transition:         all 0.3s ease-in-out;
     &:hover {
-        background-color: #f6e712;
+        background-color: #faf05f;
         color: #0000ff;
     }
     &:active {
@@ -103,14 +106,14 @@
     -o-transition:      all 0.3s ease-in-out;
     transition:         all 0.3s ease-in-out;
     &:hover {
-        background-color: #fdf473;
+        background-color: #f8f298;
         -webkit-box-shadow: 3px 10px 20px 1px #0d061a;
         box-shadow:         3px 10px 20px 1px #0d061a;
     }
 }
 
 .active {
-        background-color: #fdf473;
+        background-color: #faf05f!important;
         -webkit-box-shadow: 3px 10px 20px 1px #0d061a;
         box-shadow:         3px 10px 20px 1px #0d061a;
 }
